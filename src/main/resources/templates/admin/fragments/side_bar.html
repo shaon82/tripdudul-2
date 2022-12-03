@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+    <html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>sidebar</title>
+    </head>
+
+    <body>
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" th:fragment="side_bar">
+        <div class="row">
+            <div class="sb2-1">
+                <!--== USER INFO ==-->
+                <div class="sb2-12">
+                    <ul>
+                        <li><img th:src="@{admin_asset/images/placeholder.jpg}" alt="">
+                        </li>
+                        <li>
+                            <h5>Victoria Baker <span> Santa Ana, CA</span></h5>
+                        </li>
+                        <li></li>
+                    </ul>
+                </div>
+                <!--== LEFT MENU ==-->
+                <div class="sb2-13">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li><a th:href="@{/admin/adminhome}" class="menu-active"><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</a>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-user" aria-hidden="true"></i> Users</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a th:href="@{/admin/alluser}">All Users</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/add-user}">Add New user</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/add-merchant}">Add New Merchant</a>
+                                    </li>
+                                    <li><a>All Merchant</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-umbrella" aria-hidden="true"></i> Tour Packages</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a th:href="@{/admin/find/all-package}">All Packages</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/add-package}">Add New Package</a>
+                                    <li><a th:href="@{/admin/add-package-sub-category}">Add New Sub Categories</a>
+                                    <li><a th:href="@{/admin/all-sub-category}">All Sub Categories</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/all-category-package}">All Package Categories</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/add-package-Category}">Add Package Categories</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/find/all-package-booking}">All Package Booking</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/all/pending/booking/package}">All Pending Package Booking</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/package-booking-history}">Package Booking History</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/package-booking-current/information}">Package Booking current Info</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-h-square" aria-hidden="true"></i> Hotels</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a th:href="@{/admin/add-hotel-category}">Add Hotel Category</a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/admin/hotel-category-list}">Hotel Category list</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/allHotel}">All Hotels</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/addHotel}">Add New Hotel</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/add-room-category}">Add New Room Category</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/room-cat-all}">All Room Category</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/allTypeHotelRoom}">Room Type</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/addHotelRoomType}">Add Room Type</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/all/pending/hotels}">All Pending Hotels</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-picture-o" aria-hidden="true"></i> Sight Seeings</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a th:href="@{/admin/allSightSee}">All Sight Seeings</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/addSightSee}">Add New Sight Seeing</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-calendar-o" aria-hidden="true"></i> Events</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a th:href="@{/admin/allEvent}">All Events</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/addEvent}">Add New Event</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-braille" aria-hidden="true"></i> Ui-Kits</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a th:href="@{/admin/uiForm}">ui-form</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/uiKit}">ui-kit</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/uiTable}">ui-table</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/uiPreLoad}">ui-pre-load</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/uiTab}">ui-tab</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/uiIcon}">ui-icons</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/uiCollapsible}">ui-collapsible</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-usd" aria-hidden="true"></i> Discounts</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a th:href="@{/admin/discount}">All Discounts</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/addDiscount}">Add New Discounts</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-tags" aria-hidden="true"></i> Offers</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a th:href="@{/admin/offers}">All Offers</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/addOffers}">Add New Offers</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-ticket" aria-hidden="true"></i> Booking & Enquiry</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a th:href="@{/admin/all-hotel-booking}">Hotel</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/packageBookingAll}">Package</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/sightSeeBookingAll}">Sight Seeings</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/eventBookingAll}">Events</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-rss" aria-hidden="true"></i> Blog & Articals</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a th:href="@{/admin/allBlog}">All Blogs</a>
+                                    </li>
+                                    <li><a th:href="@{/admin/addBlog}">Add Blog</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a th:href="@{/admin/socialMedia}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Social Media</a>
+                        </li>
+                        <li><a href="login.html" target="_blank"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+
+    </html>

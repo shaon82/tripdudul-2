@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{merchant_web/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Booking Information</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Hotel Booking Enquiry</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-inn-sp">
+                                <div class="inn-title">
+                                    <h4>Hotel Booking Information</h4>
+                                    
+                                    <form th:action="@{/merchant/find/booking}" method="get">
+                                        <div class="form-area">
+                                            <div class="contact-form-v2 v2-search-form">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="input-field col s12">
+                                                            <input type="text" id="from" name="checkIn" class="m-0" readonly>
+                                                            <label for="from">Booking Start Date</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="input-field col s12">
+                                                            <input type="text" id="to" name="checkOut" class="m-0" readonly>
+                                                            <label for="to">Booking End Date</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="input-field col s12">
+                                                            <button type="submit" value="search" class="waves-effect waves-light tourz-sear-btn v2-ser-btn btn m-0">Submit</button>
+                                                            <!--                                        <input type="submit" value="submit hello" class="waves-effect waves-light tourz-sear-btn v2-ser-btn confirm-btn-2" />-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </form>
+
+                        <!--end search option with date-->
+
+                                </div>
+                                <div class="tab-inn">
+                                    <div class="table-responsive table-desi">
+                                        <table class="table table-hover custom-datatable">
+                                            <thead>
+                                                <tr>
+                                                    <th>User</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Phone</th>
+                                                    <th>Arrival Time</th>
+                                                    <th>Departure Time</th>
+                                                    <th>Room Number</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="booking:${bookings}">
+                                                    <td><span class="list-img"><img src="images/listing/1.jpeg" alt=""></span>
+                                                    </td>
+                                                    <td><span th:text="${booking.firstName}"></span> <span th:text="${booking.lastName}"></span></td>
+                                                    <td th:text="${booking.email}"></td>
+                                                    <td><span th:text="${booking.numberInit}"></span><span th:text="${booking.number}"></span></td>
+                                                    <td th:text="${booking.checkIn}"></td>
+                                                    <td th:text="${booking.checkOut}"></td>
+                                                    <td th:text="${booking.room.roomNumber}"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

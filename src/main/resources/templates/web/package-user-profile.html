@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{web/fragments/main_layout}">
+
+    <head>
+        <title>The Travel - Tour Travel</title>
+        <!--== META TAGS ==-->
+        <meta charset="utf-8" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, maximum-scale=1" />
+    </head>
+    <body>
+    <div layout:fragment="content">
+            <h2>This is package user profile</h2>
+            <p>This user name: <span th:text="${username}"></span></p>
+            <button><a th:href="@{/web/logout}">logout</a></button>
+        </div>
+
+    </body>
+</html>

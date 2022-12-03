@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{web/fragments/main_layout}">
+
+<head>
+    <title>The Travel - Tour Travel</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+<div layout:fragment="content">
+    
+    <!--DASHBOARD-->
+    <section>
+        <div class="tr-register mc-register">
+            <div class="tr-regi-form mc-regi-form">
+                <h2>Merchant Registration</h2>
+
+                <form id="merchant-advanced-form" action="#" th:objcet="${hotel}" method="post" enctype="multipart/form-data"> <!-- DO NOT CHANGE THIS FORM ID -->
+                    <h3>Registration Details</h3>
+                    <fieldset>
+                        <div class="steps-form">
+                            <div th:each="item, itemStat : *{users}">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="fullName" type="text" name="firstName" th:field="*{users[__${itemStat.index}__].firstName}" class="validate" required>
+                                        <label for="fullName">First Name</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="lastName" type="text" name="lastName" th:field="*{users[__${itemStat.index}__].lastName}" class="validate" required>
+                                        <label for="LastName">Last Name</label>
+                                    </div>
+
+                                    <div class="input-field col s12">
+                                        <input type="text" id="userName" name="username" th:field="*{users[__${itemStat.index}__].username}" class="validate" required/>
+                                        <label for="userName">Username</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="email" id="userEmail" name="email" th:field="*{users[__${itemStat.index}__].email}" class="validate" required/>
+                                        <label for="userEmail">Email</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="password" id="userPassword" name="password" th:field="*{users[__${itemStat.index}__].password}" class="validate" required/>
+                                        <label for="userPassword">Password</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="password" id="userPasswordConfirm" name="confirmPassword" class="validate" data-rule-equalTo="#userPassword" required/>
+                                        <label for="userPasswordConfirm">Password Confirm</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <h3>Hotel Details</h3>
+                    <fieldset>
+                        <div class="steps-form">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="hotelName" type="text" name="hotelName" class="validate" required>
+                                    <label for="hotelName">Hotel Name</label>
+                                </div>
+    
+                                <div class="input-field col s12">
+                                    <input type="text" id="description" name="description" class="validate" required/>
+                                    <label for="description">Description</label>
+                                </div>    
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="amenities" type="text" name="amenities" class="materialize-textarea" required></textarea>
+                                    <label for="amenities">Amenities</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label for="hotelCategory" class="position-relative">Select Category</label>
+                                    <select required id="hotelCategory" name="hotelCategories">
+                                        <option th:each="hotelAllCategory:${hotelCategories}"
+                                                th:value="${hotelAllCategory.hotelCategoryId}"
+                                                th:text="${hotelAllCategory.hotelCategoryName}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <div class="file-field input-field">
+                                        <label for="hotelImages" class="position-relative">Upload Image</label>
+                                        
+                                        <div class="file-path-wrapper">
+                                            <span class="flie-input-message">
+                                                <i class="fa fa-cloud-upload"></i>
+                                                <span class="large">Click here to upload.</span>
+                                                <span>The maximum file size for uploads is <strong>999 KB</strong></span>
+                                                <span>Only image files (<strong>JPG, GIF, PNG</strong>) are allowed</span>
+                                            </span>
+                                            <input type="file" id="hotelImages" name="files" multiple="multiple" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <h3>Contact Info</h3>
+                    <fieldset>
+                        <div class="steps-form" th:each="item, stat : *{hotelContacts}">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="phoneNumber" type="text" required name="phoneNumber" th:field="*{hotelContacts[__${stat.index}__].phoneNumber}" class="validate">
+                                    <label for="phoneNumber">Hotel's Phone Number</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="hotelEmail" type="email" required name="hotelEmail" th:field="*{hotelContacts[__${stat.index}__].hotelEmail}" class="validate required email">
+                                    <label for="hotelEmail">Hotel's Email</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <h3>Social Links</h3>
+                    <fieldset>
+                        <div class="steps-form">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="facebookLink" type="url" name="facebookLink" class="validate">
+                                    <label for="facebookLink">Facebook Url</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="twitterLink" type="url" name="twitterLink" class="validate">
+                                    <label for="twitterLink">Twitter Url</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="LinkedinLink" type="url" name= "LinkedinLink" class="validate">
+                                    <label for="LinkedinLink">Linkedin Url</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="instagramLink" type="url" name="instagramLink" class="validate">
+                                    <label for="instagramLink">Instagram Url</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="whatsAppNumber" type="url" name="whatsAppNumber" class="validate">
+                                    <label for="whatsAppNumber">WhatsApp Number</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <h3>Hotel Address</h3>
+                    <fieldset>
+                        <div class="steps-form">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="streeAddress" type="text" required name="streeAddress" class="validate"/>
+                                    <label for="streeAddress">Road Number</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="block" name="block" type="text" class="validate">
+                                    <label for="block">Block</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="city" type="text" name="city" required class="validate">
+                                    <label for="city">City</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="country" name="country" required type="text" class="validate"/>
+                                    <label for="country">Country</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                
+                </form>
+            </div>
+        </div>
+    </section>
+    <!--END DASHBOARD-->
+    
+</div>
+</body>
+
+</html>

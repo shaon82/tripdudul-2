@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{merchant_web/fragments/main_layout}">
+
+<head>
+    <title>Lava Material - Web Application and Website Multipurpose Admin Panel Template</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+
+<body>
+
+            <div class="sb2-2" layout:fragment="content">
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Ui Form</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-inn-sp">
+                                <div class="inn-title">
+                                    <h4>Add New User</h4>
+                                    <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                                </div>
+                                <div class="tab-inn">
+                                    <div th:if="${done}">successful</div>
+                                    <form th:action="@{/merchant/add/hotel/manager}" method="post" enctype="multipart/form-data">
+
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input id="firstName" type="text" class="validate" name="firstName" required="required"/>
+                                                <label for="firstName">First Name</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input id="lastName" type="text" class="validate" required="required" name="lastName"/>
+                                                <label for="lastName">Last Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input id="mobile" type="number" class="validate" name="mobile" required="required"/>
+                                                <label for="mobile">Mobile</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input id="city" type="text" class="validate" required="required" name="city"/>
+                                                <label for="city">City</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input id="country" type="text" class="validate" name="country" required="required"/>
+                                                <label for="country">Country</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <input id="username" type="text" class="validate" name="username" required="required"/>
+                                                <label for="username">User Name</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input id="password" type="password" class="validate" required="required" name="password"/>
+                                                <label for="password">Password</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input id="confirmPassword" type="password" class="validate" name="confirmPassword" required="required"/>
+                                                <label for="confirmPassword">Confirm Password</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="email" type="email" class="validate" required="required" name="email"/>
+                                                <label for="email">Email</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <div class="file-field input-field">
+                                                    <label for="hotelImages" class="position-relative">Upload Image</label>
+
+                                                    <div class="file-path-wrapper">
+                                                        <span class="flie-input-message">
+                                                            <i class="fa fa-cloud-upload"></i>
+                                                            <span class="large">Click here to upload.</span>
+                                                            <span>The maximum file size for uploads is <strong>999 KB</strong></span>
+                                                            <span>Only image files (<strong>JPG, GIF, PNG</strong>) are allowed</span>
+                                                        </span>
+                                                        <input type="file" id="hotelImages" name="files" multiple="multiple" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="submit" class="waves-effect waves-light btn-large">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+</body>
+
+</html>

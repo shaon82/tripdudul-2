@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Lava Material - Web Application and Website Multipurpose Admin Panel Template</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="sb2-2-add-blog sb2-2-1">
+                    <h2>Add Hotel Details</h2>
+                    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+
+                    <div class="tab-content">
+                        <div class="box-inn-sp">
+                            <div class="inn-title">
+                                <h4>Social Media</h4>
+                                <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                            </div>
+                            <div class="bor">
+                                <form th:action="@{/admin/save-hotel-link}" method="post" th:object="${hotelLink}">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <select multiple id="hotel" name="hotel">
+                                                <option value="" disabled selected>Choose Hotel</option>
+                                                <option th:each="hoteles:${hotelList}"
+                                                        th:value="${hoteles.id}"
+                                                        th:text="${hoteles.hotelName}"></option>
+
+                                            </select>
+                                            <label for="hotel">Select Hotel</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="facebookLink" type="text" name="facebookLink" class="validate">
+                                            <label for="facebookLink">Facebook Url</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="twitterLink" type="text" name="twitterLink" class="validate">
+                                            <label for="twitterLink">Twitter Url</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="LinkedinLink" type="text" name="LinkedinLink" class="validate">
+                                            <label for="LinkedinLink">Linkedin Url</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="instagramLink" type="text" name="instagramLink" class="validate">
+                                            <label for="instagramLink">Instagram Url</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="whatsAppNumber" type="text" name="whatsAppNumber" class="validate">
+                                            <label for="whatsAppNumber">WhatsApp Number</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input type="submit" class="waves-effect waves-light btn-large" value="Upload">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

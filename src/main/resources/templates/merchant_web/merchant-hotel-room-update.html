@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{merchant_web/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Lava Material - Web Application and Website Multipurpose Admin Panel Template</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Add Room Type</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sb2-2-add-blog sb2-2-1">
+                    <h2>Update Room</h2>
+                    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+                    <form th:action="@{/merchant/update/room/{id}(id=${room.id})}" method="post" th:object="${room}" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <select multiple name="roomCategory">
+                                    <option value="" disabled selected>Select Room Category</option>
+                                    <option th:each="roomCategory:${roomCategoryList}"
+                                            th:value="${roomCategory.id}"
+                                            th:text="${roomCategory.roomCategoryName}"></option>
+
+                                </select>
+                                <label>Select Category</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" id="roomNumber" name="roomNumber" th:field="*{roomNumber}" required="required"/>
+                                <label for="roomNumber">Room Number</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" id="roomType" name="roomType" th:field="*{roomType}" required="required"/>
+                                <label for="roomType">type of room</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="roomPrice" type="number" name="roomPrice" th:field="*{roomPrice}" class="validate">
+                                <label for="roomPrice">Price</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="roomAmenities" type="text"  name="roomAmenities" th:field="*{roomAmenities}" class="validate">
+                                <label for="roomAmenities">Amenities</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="roomDescription" name="roomDescription" th:field="*{roomDescription}" class="materialize-textarea"></textarea>
+                                <label for="roomDescription">Room Descriptions:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>File</span>
+                                        <input type="file" id="roomFiles" name="roomFiles" multiple="multiple"/>
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Upload room image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="submit" class="waves-effect waves-light btn-large" value="Submit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

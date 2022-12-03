@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Merchant Login</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <!--== FAV ICON ==-->
+    <link rel="shortcut icon" th:href="@{/admin_asset/images/fav.ico}"/>
+
+    <!-- GOOGLE FONTS -->
+    <link th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Quicksand:300,400,500}" rel="stylesheet">
+
+    <!-- FONT-AWESOME ICON CSS -->
+    <link rel="stylesheet" th:href="@{/admin_asset/css/font-awesome.min.css}">
+
+    <!--== ALL CSS FILES ==-->
+    <link rel="stylesheet" th:href="@{/admin_asset/css/style.css}">
+    <link rel="stylesheet" th:href="@{/admin_asset/css/mob.css}">
+    <link rel="stylesheet" th:href="@{/admin_asset/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/admin_asset/css/materialize.css}" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script th:src="@{/admin_asset/js/html5shiv.js}"></script>
+	<script th:src="@{/admin_asset/js/respond.min.js}"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="blog-login">
+        <div class="blog-login-in">
+            <form class="form-signin" th:action="@{/merchant/merchant-login}" method="post">
+                <img th:src="@{/admin_asset/images/logo.png}" alt="" />
+                <div class="row">
+                    <div class="bg-danger" th:if="${param.error}">
+                        Invalid username and password !
+                    </div>
+                    <div class="input-field col s12">
+                        <label for="username">User Name</label>
+                        <input type="text" class="form-control" placeholder="username" id="username" name="username" required="required" autofocus="autofocus"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" placeholder="password" id="password" name="password" required="required"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <!--<a class="waves-effect waves-light btn-large btn-log-in" th:href="@{/adminhome}">Login</a>-->
+                        <button class="btn btn-primary" value="submit">login</button>
+                    </div>
+                </div>
+                <a th:href="@{/merchant/user/password-reset}" class="for-pass">Forgot Password?</a>
+            </form>
+        </div>
+    </div>
+
+    <!--======== SCRIPT FILES =========-->
+    <script th:src="@{/admin_asset/js/jquery.min.js}"></script>
+    <script th:src="@{/admin_asset/js/bootstrap.min.js}"></script>
+    <script th:src="@{/admin_asset/js/materialize.min.js}"></script>
+    <script th:src="@{/admin_asset/js/custom.js}"></script>
+</body>
+
+</html>

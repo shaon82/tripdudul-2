@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{merchant_web/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Lava Material - Web Application and Website Multipurpose Admin Panel Template</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Add Hotel</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sb2-2-add-blog sb2-2-1">
+                    <h2>Add New Employee</h2>
+                    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active">
+                            <div class="box-inn-sp">
+                                <div class="inn-title">
+                                    <h4>Listing Information</h4>
+                                    <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                                </div>
+                                <div class="bor">
+                                    <span th:if="${success}">the Employee Successfully added.</span>
+                                    <form  th:action="@{/merchant/add/employee}" th:object="${employee}" method="post" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="firstName" type="text" name="firstName" class="validate" required="required">
+                                                <label for="firstName">First Name</label>
+                                            </div>
+
+                                            <div class="input-field col s12">
+                                                <input type="text" id="lastName" name="lastName" class="validate" required="required"/>
+                                                <label for="lastName">Last Name</label>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="email" id="email" name="email" class="validate" required="required"/>
+                                                <label for="email">Email</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <input type="number" id="phoneNumber" name="phoneNumber" class="validate" required="required"/>
+                                                <label for="phoneNumber">Phone Number</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" id="presentAddress" name="presentAddress" class="validate" required="required"/>
+                                                <label for="presentAddress">Present Address</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <input type="text" id="permanentAddress" name="permanentAddress" class="validate" required="required"/>
+                                                <label for="permanentAddress">Permanent Address</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="text" id="employeeDesignation" name="employeeDesignation" class="validate" required="required"/>
+                                                <label for="employeeDesignation">Employee Designation</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <div class="file-field input-field">
+                                                    <label for="hotelImages" class="position-relative">Upload Image</label>
+
+                                                    <div class="file-path-wrapper">
+                                            <span class="flie-input-message">
+                                                <i class="fa fa-cloud-upload"></i>
+                                                <span class="large">Click here to upload.</span>
+                                                <span>The maximum file size for uploads is <strong>999 KB</strong></span>
+                                                <span>Only image files (<strong>JPG, GIF, PNG</strong>) are allowed</span>
+                                            </span>
+                                                        <input type="file" id="hotelImages" name="file" required/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="submit" class="waves-effect waves-light btn-large" value="Submit">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--== BOTTOM FLOAT ICON ==-->
+    <!--<section>-->
+        <!--<div class="fixed-action-btn vertical">-->
+            <!--<a class="btn-floating btn-large red pulse">-->
+                <!--<i class="large material-icons">mode_edit</i>-->
+            <!--</a>-->
+            <!--<ul>-->
+                <!--<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a>-->
+                <!--</li>-->
+                <!--<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a>-->
+                <!--</li>-->
+                <!--<li><a class="btn-floating green"><i class="material-icons">publish</i></a>-->
+                <!--</li>-->
+                <!--<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--&lt;!&ndash;======== SCRIPT FILES =========&ndash;&gt;-->
+    <!--<script src="js/jquery.min.js"></script>-->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <!--<script src="js/materialize.min.js"></script>-->
+    <!--<script src="js/custom.js"></script>-->
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+<div th:fragment="header_search" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="tab-content contact-form-v2 v2-search-form">
+        <div id="flights" class="tab-pane fade">
+            <form action="">
+                <div class="search-radio-option-area clearfix">
+
+                    <div class="input-field col s3">
+                        <div class="custom-radio">
+                            <input type="radio" id="f-domestic-0" value="Domestic" name="flight_type" checked>
+                            <label for="f-domestic-0">Domestic</label>
+                        </div>
+                        <div class="custom-radio">
+                            <input type="radio" id="f-international-0" name="flight_type" Value="International">
+                            <label for="f-international-0">International</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field col s3">
+                        <div class="custom-radio">
+                            <input type="radio" id="f-one-way-0" value="One Way" name="flight_way" checked>
+                            <label for="f-one-way-0">One Way</label>
+                        </div>
+                        <div class="custom-radio">
+                            <input type="radio" id="f-round-trip-0" name="flight_way" Value="Round Trip">
+                            <label for="f-round-trip-0">Round Trip</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="search-input-option-area clearfix">
+                    <div class="input-field col s2">
+                        <input type="text" class="validate" name="f_from" id="f-from" required>
+                        <label>From</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" class="validate" name="f_to" id="f-to" required>
+                        <label>To</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" id="from" name="f_from_date" readonly>
+                        <label for="from">Check In</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" id="to" name="f_return_date" readonly disabled>
+                        <label for="to">Return Date</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <select name="flightClass" id="f-class" required>
+                            <option value="" disabled selected>Select Class</option>
+                            <option value="1">Economy</option>
+                            <option value="2">Premium Economy</option>
+                            <option value="3">Business</option>
+                            <option value="4">First Class</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="submit" value="Search" class="waves-effect waves-light tourz-sear-btn v2-ser-btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="hotels" class="tab-pane fade">
+            <form th:action="@{/search/hotel/{checkIn}/{checkOut}/{city}}" method="get">
+                <div class="search-radio-option-area clearfix"></div>                                           
+                <div class="search-input-option-area clearfix">
+                    <div class="input-field col s2">
+                        <input type="text" class="validate" name="city" id="h-city" required>
+                        <label>Enter City</label>
+                    </div>
+<!--                    <div class="input-field col s2">-->
+<!--                        <select name="hotelArea" id="h-area" required>-->
+<!--                            <option value="" disabled selected>Select Area</option>-->
+<!--                            <option value="1">Dhaka</option>-->
+<!--                            <option value="2">Chittagong</option>-->
+<!--                            <option value="3">Rajshahi</option>-->
+<!--                            <option value="4">Barishal</option>-->
+<!--                            <option value="5">Comilla</option>-->
+<!--                            <option value="6">Khulna</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+                    <div class="input-field col s2">
+                        <input type="text" id="from-1" name="checkIn" readonly>
+                        <label for="from-1">Check In</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" id="to-1" name="checkOut" readonly>
+                        <label for="to-1">Check Out</label>
+                    </div>
+<!--                    <div class="input-field col s2">-->
+<!--                        <select name="flightClass" id="f-class" required>-->
+<!--                            <option value="" disabled selected>Select Number of Room</option>-->
+<!--                            <option value="1">Room 1</option>-->
+<!--                            <option value="2">Room 2</option>-->
+<!--                            <option value="3">Room 3</option>-->
+<!--                            <option value="4">Room 4</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+                    <div class="input-field col s2">
+                        <input type="submit" value="Search" class="waves-effect waves-light tourz-sear-btn v2-ser-btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="buses" class="tab-pane fade">
+            <form action="">
+                <div class="search-radio-option-area clearfix">
+
+                    <div class="input-field col s3">
+                        <div class="custom-radio">
+                            <input type="radio" id="b-one-way-0" value="One Way" name="bus_way" checked>
+                            <label for="b-one-way-0">One Way</label>
+                        </div>
+                        <div class="custom-radio">
+                            <input type="radio" id="b-round-trip-0" name="bus_way" Value="Round Trip">
+                            <label for="b-round-trip-0">Round Trip</label>
+                        </div>
+                    </div>
+
+                </div>                                              
+                <div class="search-input-option-area clearfix">
+                    <div class="input-field col s3">
+                        <input type="text" class="validate" name="b_from" id="b-from" required>
+                        <label>From</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input type="text" class="validate" name="b_to" id="b-to" required>
+                        <label>To</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" id="from-3" name="b_check_in" readonly>
+                        <label for="from-3">Check In</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" id="to-3" name="b_check_out" readonly disabled>
+                        <label for="to-3">Return Date</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="submit" value="Search" class="waves-effect waves-light tourz-sear-btn v2-ser-btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="cars" class="tab-pane fade">
+            <form action="">
+                <div class="search-radio-option-area clearfix">
+
+                    <div class="input-field col s3">
+                        <div class="custom-radio">
+                            <input type="radio" id="c-one-way-0" value="One Way" name="car_way" checked>
+                            <label for="c-one-way-0">One Way</label>
+                        </div>
+                        <div class="custom-radio">
+                            <input type="radio" id="c-round-trip-0" name="car_way" Value="Round Trip">
+                            <label for="c-round-trip-0">Round Trip</label>
+                        </div>
+                    </div>
+
+                </div>                                              
+                <div class="search-input-option-area clearfix">
+                    <div class="input-field col s2">
+                        <input type="text" class="validate" name="c_from" id="c-from" required>
+                        <label>From</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" class="validate" name="c_to" id="c-to" required>
+                        <label>To</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" id="from-4" name="c_check_in" readonly>
+                        <label for="from-4">Check In</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" id="to-4" name="c_check_out" readonly disabled>
+                        <label for="to-4">Return Date</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <select name="carPickupTime" id="c-class" required>
+                            <option value="" disabled selected>Pickup Time</option>
+                            <option value="8:30pm">8:30pm</option>
+                            <option value="8:45pm">8:45pm</option>
+                            <option value="9:00pm">9:00pm</option>
+                            <option value="9:15pm">9:15pm</option>
+                            <option value="9:30pm">9:30pm</option>
+                            <option value="9:45pm">9:45pm</option>
+                            <option value="10:00pm">10:00pm</option>
+                            <option value="10:15pm">10:15pm</option>
+                            <option value="10:30pm">10:30pm</option>
+                            <option value="10:45pm">10:45pm</option>
+                            <option value="11:00pm">11:00pm</option>
+                            <option value="11:15pm">11:15pm</option>
+                            <option value="11:30pm">11:30pm</option>
+                            <option value="11:45pm">11:45pm</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="submit" value="Search" class="waves-effect waves-light tourz-sear-btn v2-ser-btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="packages" class="tab-pane fade">
+            <form th:action="@{/package/search/package/{packageName}/{destination}}" method="get">
+                <div class="search-radio-option-area clearfix"></div>                                               
+                <div class="search-input-option-area clearfix">
+                    <div class="input-field col s3">
+                        <select name="packageName" id="p-package" required>
+                            <option value="" disabled selected>Select Package</option>
+                            <option th:each="package:${packageList}"
+                                    th:value="${package.packageName}"
+                                    th:text="${package.packageName}"></option>
+                        </select>
+                    </div>
+                    <div class="input-field col s3">
+                        <input type="text" class="validate" name="destination" id="p-city" required>
+                        <label>City</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="text" id="from-5" name="c_check_in" readonly>
+                        <label for="from-5">Check In</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <select name="packageTime" id="p-time" required>
+                            <option value="" disabled selected>Package Time</option>
+                            <option value="1">Any</option>
+                            <option value="2">1-3 Nights</option>
+                            <option value="3">4-7 Nights</option>
+                            <option value="4">+7 Nights</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="submit" value="Search" class="waves-effect waves-light tourz-sear-btn v2-ser-btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

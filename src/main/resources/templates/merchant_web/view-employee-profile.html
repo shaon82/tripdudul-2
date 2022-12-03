@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{merchant_web/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Lava Material - Web Application and Website Multipurpose Admin Panel Template</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+
+
+<!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="sb2-2">
+            <!--== breadcrumbs ==-->
+            <div class="sb2-2-2">
+                <ul>
+                    <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                    <li class="active-bre"><a href="index.html">User</a></li>
+                    <li class="active-bre"><a href="index.html">View User Profile</a></li>
+                    <li class="page-back"><a href="index.html"><i class="fa fa-backward" aria-hidden="true"></i>Back</a></li>
+                </ul>
+            </div>
+            <div class="sb2-2-2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="inn-title">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="user-image">
+                                        <img th:src="@{'/employeeImage/'+${employeeFile.modifiedfileName}}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="user-info">
+                                        <h4><span th:text="${employee.firstName}"></span> <span th:text="${employee.lastName}"></span></h4>
+                                        <p class="designation"><span th:text="${employee.employeeDesignation}"></span></p>
+                                        <p>Email: <span th:text="${employee.email}"></span></p>
+                                        <p>Phone: <span th:text="${employee.phoneNumber}"></span></p>
+                                        <p>Present Address: <span th:text="${employee.presentAddress}"></span></p>
+                                        <p>Permanent Address: <span th:text="${employee.permanentAddress}"></span></p>
+                                        <div class="salary">Salary: <span>30,000</span> 
+                                            <span class="btn btn-success s-paid" title="Already Paid for Current Month">Paid</span>
+                                            <div class="user-payment-form">
+                                                <span class="btn btn-danger s-pay" title="Pay for Current Month">Pay Now</span>
+                                                <form action="">
+                                                    <div class="pay-salary-form">
+                                                        <input type="number" placeholder="Salary amount">
+                                                        <input type="submit" class="btn" value="Pay">
+                                                    </div>                                                
+                                                </form>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="user-working-hour">
+                                        <h4>Working Hours</h4>
+                                        <div class="show-working-hours">
+                                            <div class="start">10:00 AM</div>
+                                            <div class="time-divider">-</div>
+                                            <div class="end">06:00 PM</div>
+                                        </div>
+                                        <div class="edit-working-hours">
+                                            <div class="working-hours-input">
+                                                <div class="start"><input type="text" placeholder="Start"></div>
+                                                <div class="time-divider">-</div>
+                                                <div class="end"><input type="text" placeholder="End"></div>
+                                            </div>
+                                            <button type="button" class="btn btn-primary user-working-hours-edit-btn">Edit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="inn-title">
+                            <h3>Educational Information</h3>
+                            <div class="tab-inn user-profile-table">
+                                <table class="responsive-table striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Degree</th>
+                                            <th>Subject Name</th>
+                                            <th>Institute</th>
+                                            <th>Passing Year</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>B.Sc Eng (Computer)</td>
+                                            <td>Computer Science & Engineering</td>
+                                            <td>Ahsanullah University of Science and Technology</td>
+                                            <td>2017</td>
+                                        </tr>
+                                        <tr>
+                                            <td>B.Sc Eng (Computer)</td>
+                                            <td>Computer Science & Engineering</td>
+                                            <td>Ahsanullah University of Science and Technology</td>
+                                            <td>2017</td>
+                                        </tr>
+                                        <tr>
+                                            <td>B.Sc Eng (Computer)</td>
+                                            <td>Computer Science & Engineering</td>
+                                            <td>Ahsanullah University of Science and Technology</td>
+                                            <td>2017</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="inn-title">
+                            <h3>Experience Information</h3>
+                            <div class="tab-inn user-profile-table">
+                                <table class="responsive-table striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Company Name</th>
+                                            <th>Job Title</th>
+                                            <th>Years</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Update Tech Ltd.</td>
+                                            <td>Front-End Developer</td>
+                                            <td>March, 2017 - December, 2018</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Update Tech Ltd.</td>
+                                            <td>Front-End Developer</td>
+                                            <td>March, 2019 - Present</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Update Tech Ltd.</td>
+                                            <td>Front-End Developer</td>
+                                            <td>March, 2019 - Present</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="inn-title">
+                            <h3>Salary Information</h3>
+                            <div class="tab-inn user-profile-table">
+                                <table class="responsive-table striped text-center custom-datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Salary</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr th:each="salary:${employeeSalaries}">
+                                            <td th:text="${salary.date}"></td>
+                                            <td th:text="${salary.salary}"></td>
+                                            <td>
+                                                <div th:if="${salary.status} == true" class="user-status paid">
+                                                    <span>PAID</span>
+                                                </div>
+                                                <div th:if="${salary.status} == false" class="user-status unpaid">
+                                                    <span>UNPAID</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="table-export-btns">
+                                <button type="button" class="btn btn-primary">Export Current Month</button>
+                                <button type="button" class="btn btn-primary">Export All</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

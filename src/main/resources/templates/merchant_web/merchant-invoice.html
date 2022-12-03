@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=8">
+    <title>Invoice</title>
+    <meta name="generator" content="Invoice">
+    <style type="text/css">
+        body, html {
+            margin: 0px;
+            padding: 0px;
+            background-color: #fcfcfc;
+        }
+
+        #page_1 {
+            position: relative;
+            overflow: hidden;
+            margin: 0px;
+            padding: 0px;
+            border: none;
+            width: 816px;
+        }
+        table {
+		    width: 100%;
+		    padding: 10px 12px;
+		}
+        table td {
+		    vertical-align: middle;
+            color: #333542;
+		    font: normal 12px 'helvetica';
+            line-height: 22px;
+		}
+        .text-right {
+		    text-align: right;
+		}
+		.text-center {
+		    text-align: center;
+		}
+
+		table.t1 {
+		    background: #ECEFF4;
+		    white-space: nowrap;
+		}
+
+		td.logo img {
+		    height: 40px;
+		    width: auto;
+		    margin: 8px 0;
+		}
+        table.t1 tbody tr td {
+            width: 50%;
+        }
+        table.t1.logo-table tbody tr td:last-child {
+            text-align: right;
+        }
+        table.t1 tbody tr td.logo {
+            width: 70%;
+            vertical-align: top;
+        }
+        table.t1 tbody tr td.hotel-name {
+            font: bold 22px 'helvetica';
+            text-transform: uppercase;
+        }
+        table.t1 tbody tr td span {
+            width: 98px;
+            display: inline-block;
+        }
+
+		table.t3 tr.head td {
+		    background: #ECEFF4;
+		}
+
+		table.t3 tr td {
+		    padding: 5px 10px;
+		    border-left: 1px solid #e2e2e2;
+		    border-bottom: 1px solid #e2e2e2;
+			text-transform: capitalize;
+		}
+
+		table.t3 tr.head td {
+		    border-top: 1px solid #e2e2e2;
+            font-weight: 700;
+		}
+		table.t3 tr td:last-child {
+		    border-right: 1px solid #e2e2e2;
+		}
+		/* table.t3 tr:not(.head) td.product-name, table.t3 tr:not(.head) td.product-total-price,
+		table.t4 .text-right {
+		    font-weight: bold;
+			color: #333542;
+		} */
+        table.t4 {
+            width: 400px;
+            /* margin-left: 116px; */
+            /* float: right; */
+        }
+        .summery-table-wrapper {
+            margin-left: 416px;
+        }
+
+		tr.grand-total-row {
+		    font-size: 15px;
+		    line-height: 32px;
+		    font-weight: bold;
+		    color: #333542;
+		}
+
+		tr.grand-total-row td {
+		    border-top: 1px solid #e2e2e2;
+		}
+		tr.summery-last-row td {
+		    padding-bottom: 10px;
+		}
+        .taka {
+            height: 12px;
+        }
+
+        table.t5 {
+            border: 1px solid #e2e2e2;
+            margin-left: 12px;
+            margin-right: 12px;
+            width: 792px;
+        }
+
+        table.t5 tbody tr td:first-child {
+            width: 75%
+        }
+
+        table.t7 tbody tr td {padding-top: 10px;padding-bottom: 10px;}
+
+        table a {
+            color: #038bcc;
+            font-weight: 700;
+        }
+        table.t6 tbody tr td.signature span {
+            display: inline-block;
+            width: 180px;
+            height: 2px;
+            background: #333542;
+            margin-bottom: 5px;
+            margin-top: 70px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="page_1">
+        <table cellpadding=0 cellspacing=0 class="t1 logo-table">
+            <tbody>
+                <tr>
+                    <td rowspan="6" class="logo">
+                        <img src="logo.png">
+                    </td>
+                    <td class="hotel-name"><b>Hotel Name</b></td>                    
+                </tr>
+                <tr>
+                    <td class="hotel-address">House-36, Road-8, Block-H, Mirpur-2</td>
+                </tr>
+                <tr>
+                    <td class="hotel-city-country">Dhaka-1216, Bangladesh</td>
+                </tr>
+                <tr>
+                    <td class="hotel-email">Email: <a href="mailto:rafiul1009@gmail.com">rafiul1009@gmail.com</a></td>
+                </tr>
+                <tr>
+                    <td class="hotel-phone">Phone: 01915729520</td>
+                </tr>
+            </tbody>
+        </table>
+
+		<table cellpadding=0 cellspacing=0 class="t1">
+            <tbody>
+                <tr>
+                    <td class="shipping-address-text"><b><u>Contact Info</u></b></td>
+                    <td class="billing-address-text" colspan="2"><b><u>Booking Info</u></b></td>
+                </tr>
+                <tr>
+                    <td class="shipper-name">Md. Rafiul Islam</td>
+                    <td class="biller-name"><span><b>Booking Number</b></span> <b>:</b> 8967589</td>
+                </tr>
+                
+                <tr>
+                    <td class="shipper-email">Email: <a th:href="@{mailto:rafiul1009@gmail.com}">rafiul1009@gmail.com</a></td>
+                    <td class="biller-name"><span><b>Booking Date</b></span> <b>:</b> <nobr>21 August, 2019</nobr></td>
+                </tr>
+                <tr>
+                    <td class="shipper-phone">Phone: 01915729520</td>
+                    <td class="biller-name"><span><b>Payment Method</b></span> <b>:</b> Cash</td>
+                </tr>
+            </tbody>
+        </table>
+       
+        <table cellpadding=0 cellspacing=0 class="t3">
+            <tbody>
+                <tr class="head">
+                    <td class="guest-number text-center">Sr No</td>
+                    <td class="guest-name">Guest Name</td>
+                    <td class="guest-age text-center">Age</td>
+                    <td class="guest-gender text-center">Gender</td>
+                </tr>
+                <tr class="body">
+                    <td class="guest-number text-center">1</td>
+                    <td class="guest-name">Mr. Abdur Rahman</td>
+                    <td class="guest-age text-center">20</td>
+                    <td class="guest-gender text-center">Male</td>
+                </tr>
+                <tr class="body">
+                    <td class="guest-number text-center">2</td>
+                    <td class="guest-name">Mrs. Nasima Akter</td>
+                    <td class="guest-age text-center">28</td>
+                    <td class="guest-gender text-center">Female</td>
+                </tr>
+                <tr class="body">
+                    <td class="guest-number text-center">3</td>
+                    <td class="guest-name">Salman Rahman</td>
+                    <td class="guest-age text-center">14</td>
+                    <td class="guest-gender text-center">Male</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table cellpadding=0 cellspacing=0 class="t3">
+            <tbody>
+                <tr class="head">
+                    <td class="room-number text-center">Room No</td>
+                    <td class="room-name">Room Type</td>
+                    <td class="room-sku text-center">Guest No</td>
+                    <td class="room-varient-sku text-center">Room Price</td>
+                </tr>
+                <tr class="body">
+                    <td class="room-number text-center">Room 001</td>
+                    <td class="room-type">Premium</td>
+                    <td class="room-guest-no text-center">3</td>
+                    <td class="room-price text-center">BDT 10000</td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellpadding=0 cellspacing=0 class="t5">
+            <tbody>
+                <tr>
+                    <td class="blank"></td>
+                    <td class="shipping-cost-text"><b>Subtotal Amount</b></td>
+                    <td class="shipping-cost"><b>:</b> BDT 26.2</td>
+                </tr>
+                <tr>
+                    <td class="blank"></td>
+                    <td class="total-tax-text"><b>Total Tax</b></td>
+                    <td class="total-tax"><b>:</b> BDT 26.2</td>
+                </tr>
+                <tr>
+                    <td class="blank"></td>
+                    <td class="total-amount-text"><b>Total Amount</b></td>
+                    <td class="total-amount"><b>:</b> BDT 26.2</td>
+                </tr>
+                <tr>
+                    <td class="blank"></td>
+                    <td class="amount-paid-text"><b>Amount Paid</b></td>
+                    <td class="amount-paid"><b>:</b> BDT 45626.2</td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellpadding=0 cellspacing=0 class="t6">
+            <tbody>
+                <tr>
+                    <td class="sign-blank"></td>
+                    <td class="signature text-center"><span class="line"></span><br><b>Customer Signature</b></td>
+                    <td class="sign-blank"></td>
+                    <td class="signature text-center"><span class="line"></span><br><b>Manager Signature</b></td>
+                    <td class="sign-blank"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellpadding=0 cellspacing=0 class="t7">
+            <tbody>
+                <tr>
+                    <td class="regards-message">Warm Regards,<br><a th:href="@{https://tripdoddule.com/}">tripdoddule.com</a> Team.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

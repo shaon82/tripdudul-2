@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Tripdodul - Hotel Profile</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#">Hotel Profile</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sb2-2-add-blog sb2-2-1">
+                    <h2 th:text="${hotel.hotelName}"></h2>
+
+                    <div class="hotel-basic-information">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="hotel-details-info">
+                                    <div class="hotel-details-description" th:text=${hotel.description}></div>
+                                    <div class="hotel-details-others">
+                                        <strong>Amenities:</strong>
+                                        <div class="amenities-list">
+                                            <ul th:each="amenitie:${hotel.amenities}">
+                                                <li th:text="${amenitie}"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="hotel-details-others">
+                                        <strong>Category:</strong>
+                                        <span th:text="${hotel.hotelCategory.hotelCategoryName}"></span>
+                                    </div>
+                                    <div class="hotel-details-others align-items-center">
+                                        <strong>Percentage with Admin:</strong>
+                                        <span th:if="${hotel.hotelPercentage} != null" th:text="${hotel.hotelPercentage.percentage}"></span>
+                                        <span th:unless="${hotel.hotelPercentage} != null">0%</span>
+                                        <form th:action="@{/admin/add/hotel/percentage/{hotelId}(hotelId=${hotel.id})}" method="post" class="percentage-edit-form">
+                                            <input type="text" placeholder="Percentage" name="percentage"/>
+                                            <button type="submit" name="percentageEdit"><i class="fa fa-check"></i></button>
+                                        </form>
+                                        <span class="percentage-edit-btn" title="Edit percentage"><i class="fa fa-pencil"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="hotel-details-image-carousel owl-carousel">
+                                    <div class="single-hotel-details-image">
+                                        <img th:src="@{admin_asset/images/hotel-bg-1.jpg}" alt="">
+                                    </div>
+                                    <div class="single-hotel-details-image">
+                                        <img th:src="@{admin_asset/images/hotel-bg-2.jpg}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hotel-details-table">
+                        <table class="responsive-table striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>Contact Info</th>
+                                    <th>Social Links</th>
+                                    <th>Hotel Address</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td th:each="hotelContact:${hotelContactList}">
+                                        <div class="single-table-info">
+                                            <strong>Phone Number: </strong>
+                                                <span><a th:href="@{tel:}+${hotelContact.phoneNumber}"><span th:text="${hotelContact.phoneNumber}"></span></a></span>
+                                        </div>
+                                        <div class="single-table-info">
+                                            <strong>Email: </strong>
+                                            <span><a th:href="@{mailto:}+${hotelContact.hotelEmail}"><span th:text="${hotelContact.hotelEmail}"></span></a></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="hotel-details-social-links">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td th:each="hotelAddress:${hotelAddressList}">
+                                        <div class="single-table-info">
+<!--                                            11-P, Meghna Tower, Multiplan Red Crescent City, <br> Block-G, Zoo Road, Mirpur-1, Dhaka-1216.-->
+                                        <span><span th:text="${hotelAddress.streeAddress}"></span>,<span th:text="${hotelAddress.block}"></span>,<span th:text="${hotelAddress.city}"></span>,<span th:text="${hotelAddress.country}"></span>.</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="inn-title-2">
+                        <h3>Room List</h3>
+                        <div class="hotel-details-table">
+                            <table class="responsive-table striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Room Number</th>
+                                        <th>Room Type</th>
+                                        <th>Room Price</th>
+                                        <th>Room Status</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr th:each="room:${roomList}">
+                                        <td th:text="${room.roomNumber}"></td>
+                                        <td th:text="${room.roomType}"></td>
+                                        <td th:text="${room.roomPrice}"></td>
+                                        <td>
+                                            <span th:if="${room.active}==false">Booked</span>
+                                            <span th:unless="${room.active}==false">Empty</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

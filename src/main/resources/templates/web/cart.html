@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{web/fragments/main_layout}">
+
+<head>
+    <title>The Travel - Cart</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+    <div layout:fragment="content">
+            <section>
+                <!-- TOP SEARCH BOX -->
+                <div class="search-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="search-form">
+                                <form class="tourz-search-form">
+                                    <div class="input-field">
+                                        <input type="text" id="select-city" class="autocomplete">
+                                        <label for="select-city">Enter city</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="text" id="select-search" class="autocomplete">
+                                        <label for="select-search" class="search-hotel-type">Search over a million tour and travels, sight seeings, hotels and more</label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="submit" value="search" class="waves-effect waves-light tourz-sear-btn"> </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END TOP SEARCH BOX -->
+            </section>
+            <!--END HEADER SECTION-->
+
+
+            <!--====== TOUR DETAILS ==========-->
+            <section>
+                <div class="rows inn-page-bg com-colo">
+                    <div class="container inn-page-con-bg tb-space">
+                        <div class="col-md-9">
+                            <form th:action="@{/hotel-booking/room/save-booking}" method="post" th:object="${booking}" enctype="">
+                                <div th:if="${error}">data binding error!!!</div>
+                                <!-- HOTEL DETAILS START -->
+                                <div class="cart-option-block">
+                                    <h3 data-toggle="collapse" data-target="#cart-hotel-details" aria-expanded="true" aria-controls="cart-hotel-details">
+                                        <span>
+                                            <span class="number">1</span> <span class="text">Review Hotel & Room</span>
+                                        </span>
+                                    </h3>
+
+                                    <div class="cart-hotel-details collapse in" id="cart-hotel-details">
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="cart-hotel-details-image" th:each="file,iterStat:${files}" th:if="${room.id} == ${file.room.id}">
+                                                    <img th:src="@{'/roomImage/'+${file.modifiedfileName}}" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="cart-hotel-details-info">
+<!--                                                    <div class="hotel-name" th:text="${hotel.hotelName}"></div>-->
+                                                    <div class="hotel-address">K-814, Abdul Gaffar Khan Marg, Mahipalpur Village, Mahipalpur, New Delhi, Delhi 110037</div>
+
+                                                    <div class="hotel-options">
+                                                        <h5>Standard</h5>
+                                                        <ul>
+                                                            <li><i class="fa fa-wifi"></i> Free Wi-Fi</li>
+                                                            <li><i class="fa fa-times"></i> Non Refundable</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- HOTEL DETAILS END -->
+
+                                <!-- GUEST DETAILS START -->
+                                <div class="cart-option-block">
+                                    <h3>
+                                        <span>
+                                            <span class="number">2</span> <span class="text">Guest Details</span>
+                                        </span>
+                                        <button type="button" class="waves-effect waves-light edit-guest-btn" data-toggle="collapse" data-target="#cart-guest-details" aria-expanded="true" aria-controls="cart-guest-details">Edit</button>
+                                    </h3>
+
+                                    <div class="cart-hotel-details collapse in" id="cart-guest-details">
+                                        <div class="form-area">
+                                            <h5>Contact Info</h5>
+                                            <div class="contact-form-v2 v2-search-form">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <div class="input-field col s12">
+                                                            <select name="nameInit" th:field="*{nameInit}" id="c-title" required>
+                                                                <option value="" disabled selected>Title</option>
+                                                                <option value="Mr.">Mr.</option>
+                                                                <option value="Mrs.">Mrs.</option>
+                                                                <option value="Ms.">Ms.</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="input-field col s12">
+                                                            <input type="text"  class="validate" name="firstName" th:field="*{firstName}" id="c-firstname" required />
+                                                            <label>First Name</label>
+                                                            <p class="input-warning" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="input-field col s12">
+                                                            <input type="text"  class="validate" name="lastName" th:field="*{lastName}" id="c-lastname" required />
+                                                            <label>Last Name</label>
+                                                            <p class="input-warning" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="checkbox checkbox-info checkbox-circle col s12">
+                                                            <input id="c-guest" class="styled" type="checkbox">
+                                                            <label for="c-guest"> Guest </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="input-field col s12">
+                                                            <input type="email"  class="validate" name="email" th:field="*{email}" id="c-email" required>
+                                                            <label>Email</label>
+                                                            <p class="input-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="input-field col s12">
+                                                            <select name="numberInit" id="c-country-code" required>
+                                                                <option value="" disabled selected>Country Code</option>
+                                                                <option value="+880">Bangladesh(+880)</option>
+                                                                <option value="+91">India(+91)</option>
+                                                                <option value="+93">Afganistan(+93)</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="input-field col s12">
+                                                            <input type="text"  class="validate" name="number" th:field="*{number}" id="c-phone" required>
+                                                            <label>Phone/Mobile Number</label>
+                                                            <p class="input-warning" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-area guest-area m-2">
+                                            <h5>Guest Info</h5>
+                                            <div class="contact-form-v2 v2-search-form">
+                                                <div class="guest-inputs-wrapper" th:each="item, stat : *{guests}">
+                                                    <div class="row">
+                                                        <div class="col-md-1">
+                                                            <div class="input-field col s12">
+                                                                <div class="guest-number">
+                                                                    Guest <span class="number">1</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="input-field col s12">
+                                                                <select th:field="*{guests[__${stat.index}__].nameInit}" id="g-title-0">
+                                                                    <option value="" disabled selected>Title</option>
+                                                                    <option value="Mr.">Mr.</option>
+                                                                    <option value="Mrs.">Mrs.</option>
+                                                                    <option value="Ms.">Ms.</option>
+                                                                </select>
+                                                                <p class="input-warning" th:if="${#fields.hasErrors('guests[__${stat.index}__].nameInit')}" th:errors="*{guests[__${stat.index}__].nameInit}"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-field col s12">
+                                                                <input type="text"  class="validate" name="name"  th:field="*{guests[__${stat.index}__].name}" id="g-fullname-0" required>
+                                                                <label>Full Name</label>
+                                                                <p class="input-warning" th:if="${#fields.hasErrors('guests[__${stat.index}__].name')}" th:errors="*{guests[__${stat.index}__].name}"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <div class="input-field col s12">
+                                                                <input type="text"  class="validate" th:field="*{guests[__${stat.index}__].age}" id="g-age-0" required>
+                                                                <label>Age</label>
+                                                                <p class="input-warning" th:if="${#fields.hasErrors('guests[__${stat.index}__].age')}" th:errors="*{guests[__${stat.index}__].age}"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="input-field col s12">
+                                                                <div class="custom-radio">
+                                                                    <input type="radio" id="m-gender-0" th:field="*{guests[__${stat.index}__].gender}" value="Male" checked>
+                                                                    <label for="m-gender-0">Male</label>
+                                                                </div>
+                                                                <div class="custom-radio">
+                                                                    <input type="radio" id="f-gender-0" th:field="*{guests[__${stat.index}__].gender}" Value="Female">
+                                                                    <label for="f-gender-0">Female</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <div class="input-field col s12">
+                                                                <button type="button" class="remove-guest-btn"><i class="fa fa-times"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="input-field col s12">
+                                                        <button type="button" class="waves-effect waves-light add-guest-btn">Add Guest</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="input-field col s12">
+                                                        <button type="button" class="waves-effect waves-light tourz-sear-btn v2-ser-btn confirm-btn-2">Confirm</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- GUEST DETAILS END -->
+
+                                <!-- PAYMENT DETAILS START -->
+                                <div class="cart-option-block">
+                                    <h3 data-toggle="collapse" data-target="#cart-payment-details" aria-expanded="false" aria-controls="cart-payment-details">
+                                        <span>
+                                            <span class="number">3</span> <span class="text">Confirmation & Payment</span>
+                                        </span>
+                                    </h3>
+
+                                    <div class="cart-hotel-details collapse" id="cart-payment-details">
+                                        <div class="form-area">
+                                            <h5>Contact Info</h5>
+                                            <div class="contact-info-details">
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Phone</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="name"></td>
+                                                            <td class="email"></td>
+                                                            <td class="phone"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="form-area guest-area m-2">
+                                            <h5>Guest Info</h5>
+                                            <div class="contact-info-details guest-info-details">
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No.</th>
+                                                            <th>Name</th>
+                                                            <th>Age</th>
+                                                            <th>Gender</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="form-area guest-area m-2">
+                                            <div class="order-expire-message">
+                                                The order will expire in: <span>Tue Sep 10 2019 13:15:42</span>
+                                            </div>
+                                            <div class="total-payable-amount">
+                                                Total payable amount <span>$5,000</span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <button type="submit" class="waves-effect waves-light tourz-sear-btn v2-ser-btn pay-btn-2">Pay Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- PAYMENT DETAILS END -->
+                            </form>
+                        </div>
+                        <div class="col-md-3 tour_r">
+                            <!--====== COST SUMMERY ==========-->
+                            <div class="tour_right tour_incl tour-ri-com">
+                                <h3>Cost Summary</h3>
+                                <div class="cart-cost-summary">
+                                    <div class="cost-summary-box">
+                                        <h5>Rooms</h5>
+                                        <p>1 Room</p>
+                                    </div>
+                                    <div class="cost-summary-box">
+                                        <h5>Guests</h5>
+                                        <p>2 Adults</p>
+                                    </div>
+                                </div>
+                                <div class="cart-cost-summary">
+                                    <div class="cost-summary-box">
+                                        <h5>CHECK IN</h5>
+                                        <p>10 Sep ' 19 Tue</p>
+                                    </div>
+                                    <div class="cost-summary-box">
+                                        <h5>CHECK OUT</h5>
+                                        <p>11 Sep ' 19 Wed</p>
+                                    </div>
+                                </div>
+                                <div class="cart-cost-summary flex-column">
+                                    <h5>PRICE BREAKUP</h5>
+                                    <ul>
+                                        <li>
+                                            <div class="left-side">Price (1 Room X 1 Night)</div>
+                                            <div class="right-side">8,400</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-side">GST</div>
+                                            <div class="right-side">8,400</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-side">Service Charge</div>
+                                            <div class="right-side">8,400</div>
+                                        </li>
+                                        <li>
+                                            <div class="left-side">Promo Discount</div>
+                                            <div class="right-side">8,400</div>
+                                        </li>
+                                        <li class="total">
+                                            <div class="left-side">Total ( 1 Room X 1 Night)</div>
+                                            <div class="right-side">8,400</div>
+                                        </li>
+                                    </ul>
+                                    <div class="cost-summary-warning">Hotel rates vary greatly during long holidays, will confirm bookings with final price!</div>
+                                </div>
+                            </div>
+
+
+                            <!--====== SPECIAL OFFERS ==========-->
+                            <div class="tour_right tour_offer">
+                                <div class="band1"><img src="images/offer.png" alt="" /> </div>
+                                <p>Special Offer</p>
+                                <h4>$500<span class="n-td">
+                                        <span class="n-td-1">$800</span>
+                                        </span>
+                                    </h4> <a href="booking.html" class="link-btn">Book Now</a> </div>
+                            <!--====== TRIP INFORMATION ==========-->
+                            <div class="tour_right tour_incl tour-ri-com">
+                                <h3>Trip Information</h3>
+                                <ul>
+                                    <li>Location : Rio,Brazil</li>
+                                    <li>Arrival Date: Nov 12, 2017</li>
+                                    <li>Departure Date: Nov 21, 2017</li>
+                                    <li>Free Sightseeing & Hotel</li>
+                                </ul>
+                            </div>
+                            <!--====== PACKAGE SHARE ==========-->
+                            <div class="tour_right head_right tour_social tour-ri-com">
+                                <h3>Share This Package</h3>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
+                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a> </li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a> </li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a> </li>
+                                    <li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a> </li>
+                                </ul>
+                            </div>
+                            <!--====== HELP PACKAGE ==========-->
+                            <div class="tour_right head_right tour_help tour-ri-com">
+                                <h3>Help & Support</h3>
+                                <div class="tour_help_1">
+                                    <h4 class="tour_help_1_call">Call Us Now</h4>
+                                    <h4><i class="fa fa-phone" aria-hidden="true"></i> 10-800-123-000</h4> </div>
+                            </div>
+                            <!--====== PUPULAR TOUR PACKAGES ==========-->
+                            <div class="tour_right tour_rela tour-ri-com">
+                                <h3>Popular Packages</h3>
+                                <div class="tour_rela_1"> <img src="images/related1.png" alt="" />
+                                    <h4>Dubai 7Days / 6Nights</h4>
+                                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p> <a href="#" class="link-btn">View this Package</a> </div>
+                                <div class="tour_rela_1"> <img src="images/related2.png" alt="" />
+                                    <h4>Mauritius 4Days / 3Nights</h4>
+                                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p> <a href="#" class="link-btn">View this Package</a> </div>
+                                <div class="tour_rela_1"> <img src="images/related3.png" alt="" />
+                                    <h4>India 14Days / 13Nights</h4>
+                                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p> <a href="#" class="link-btn">View this Package</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--====== TIPS BEFORE TRAVEL ==========-->
+            <section>
+                <div class="rows tips tips-home tb-space home_title">
+                    <div class="container tips_1">
+                        <!-- TIPS BEFORE TRAVEL -->
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <h3>Tips Before Travel</h3>
+                            <div class="tips_left tips_left_1">
+                                <h5>Bring copies of your passport</h5>
+                                <p>Aliquam pretium id justo eget tristique. Aenean feugiat vestibulum blandit.</p>
+                            </div>
+                            <div class="tips_left tips_left_2">
+                                <h5>Register with your embassy</h5>
+                                <p>Mauris efficitur, ante sit amet rhoncus malesuada, orci justo sollicitudin.</p>
+                            </div>
+                            <div class="tips_left tips_left_3">
+                                <h5>Always have local cash</h5>
+                                <p>Donec et placerat ante. Etiam et velit in massa. </p>
+                            </div>
+                        </div>
+                        <!-- CUSTOMER TESTIMONIALS -->
+                        <div class="col-md-8 col-sm-6 col-xs-12 testi-2">
+                            <!-- TESTIMONIAL TITLE -->
+                            <h3>Customer Testimonials</h3>
+                            <div class="testi">
+                                <h4>John William</h4>
+                                <p>Ut sed sem quis magna ultricies lacinia et sed tortor. Ut non tincidunt nisi, non elementum lorem. Aliquam gravida sodales</p> <address>Illinois, United States of America</address> </div>
+                            <!-- ARRANGEMENTS & HELPS -->
+                            <h3>Arrangement & Helps</h3>
+                            <div class="arrange">
+                                <ul>
+                                    <!-- LOCATION MANAGER -->
+                                    <li>
+                                        <a href="#"><img src="images/Location-Manager.png" alt=""> </a>
+                                    </li>
+                                    <!-- PRIVATE GUIDE -->
+                                    <li>
+                                        <a href="#"><img src="images/Private-Guide.png" alt=""> </a>
+                                    </li>
+                                    <!-- ARRANGEMENTS -->
+                                    <li>
+                                        <a href="#"><img src="images/Arrangements.png" alt=""> </a>
+                                    </li>
+                                    <!-- EVENT ACTIVITIES -->
+                                    <li>
+                                        <a href="#"><img src="images/Events-Activities.png" alt=""> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </div>
+</body>
+
+</html>

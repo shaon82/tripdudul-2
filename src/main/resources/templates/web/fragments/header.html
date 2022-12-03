@@ -1,0 +1,89 @@
+<header th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+
+    
+    <!--HEADER SECTION-->
+    <section>
+        <!-- TOP BAR -->
+        <div class="ed-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ed-com-t1-left header-top-left">
+                            <ul>
+                                <li>
+                                	<a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+                                </li>
+                                <li>
+                                	<a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+                                </li>
+                                <li>
+                                	<a href="#"><i class="fa fa-instagram"></i> Instagram</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <div class="ed-com-t1-right header-top-right">
+                            <ul>
+                                <li>
+                                	<a th:href="@{/webLogin}">Sign In</a>
+                                </li>
+                                <li>
+                                	<a th:href="@{/register}">Sign Up</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- LOGO AND MENU SECTION -->
+        <div class="top-logo" data-spy="affix" data-offset-top="250">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="wed-logo">
+                            <a th:href="@{/}"><img th:src="@{web_asset/images/logo.png}" alt="" />
+                            </a>
+                        </div>
+                        <div class="main-menu">
+                            <ul>
+                                <li>
+                                	<a th:href="@{/}" th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}">Home</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/search/flight}" th:classappend="${#httpServletRequest.getRequestURI() == '/search/flight' ? 'active':''}">Flights</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/search/hotel}" th:classappend="${#httpServletRequest.getRequestURI() == '/search/hotel' ? 'active':''}">Hotels</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/search/bus}" th:classappend="${#httpServletRequest.getRequestURI() == '/search/bus' ? 'active':''}">Buses</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/search/car}" th:classappend="${#httpServletRequest.getRequestURI() == '/search/car' ? 'active':''}">Cars</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/search/package}" th:classappend="${#httpServletRequest.getRequestURI() == '/search/package' ? 'active':''}">Packages</a>
+                                </li>
+                                <li sec:authorize="hasAuthority('ROLE_USER')">
+                                    <a th:href="@{/web-user/profile}">Profile</a>
+                                </li>
+<!--                                <li>-->
+<!--                                    <a th:href="@{/web-user/profile}">Profile</a>-->
+<!--                                </li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>

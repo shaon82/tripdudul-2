@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8" />
+    <base th:href="@{http://localhost:8080/}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--== FAV ICON ==-->
+    <link rel="shortcut icon" th:href="@{admin_asset/images/fav.ico}" />
+
+    <!-- GOOGLE FONTS -->
+    <link th:href="@{https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Quicksand:300,400,500}" rel="stylesheet" />
+
+    <!-- FONT-AWESOME ICON CSS -->
+    <link rel="stylesheet" th:href="@{admin_asset/css/font-awesome.min.css}" />
+
+    <!--== ALL CSS FILES ==-->
+    <link rel="stylesheet" th:href="@{admin_asset/css/jquery.steps.css}" />
+    <link rel="stylesheet" th:href="@{admin_asset/css/select2.min.css}" />
+    <link rel="stylesheet" th:href="@{admin_asset/css/owl.carousel.min.css}" />
+    <link rel="stylesheet" th:href="@{admin_asset/css/mob.css}" />
+    <link rel="stylesheet" th:href="@{admin_asset/css/bootstrap.css}" />
+    <link rel="stylesheet" th:href="@{admin_asset/css/materialize.css}" />
+    <link rel="stylesheet" th:href="@{admin_asset/css/style.css}" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <title>main_layout</title>
+</head>
+
+<body>
+    <div th:replace="admin/fragments/header::header"></div>
+
+    <div th:replace="admin/fragments/side_bar::side_bar"></div>
+
+    <div layout:fragment="content"></div>
+    <div th:replace="admin/fragments/floatIcon::floatIcon"></div>
+
+    <script th:src="@{admin_asset/js/jquery.min.js}"></script>
+    <script th:src="@{admin_asset/js/jquery-ui.js}"></script>
+    <script th:src="@{admin_asset/js/bootstrap.min.js}"></script>
+    <script th:src="@{admin_asset/js/materialize.min.js}"></script>
+    <script th:src="@{admin_asset/js/select2.min.js}"></script>
+    <script th:src="@{admin_asset/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{admin_asset/js/jquery.validate.min.js}"></script>
+    <script th:src="@{admin_asset/js/jquery.steps.min.js}"></script>
+    <script th:src="@{admin_asset/js/owl.carousel.min.js}"></script>
+    <script th:src="@{admin_asset/js/custom.js}"></script>
+
+</body>
+
+</html>

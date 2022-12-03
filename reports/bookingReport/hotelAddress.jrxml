@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="hotelAddress" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e3a2ddff-6e65-488c-9334-801da4902857">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="streeAddress" class="java.lang.String"/>
+	<field name="block" class="java.lang.String"/>
+	<field name="city" class="java.lang.String"/>
+	<field name="country" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="72" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="130" height="17" uuid="79c996b4-505e-43b4-8cde-3e631a546985"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{streeAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="17" width="109" height="17" uuid="4f3f9706-7a83-4079-adec-8691a433a343"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{block}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="35" width="119" height="17" uuid="bdedf2f8-c47d-4c8d-9b70-061bf21a3cd5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="53" width="100" height="17" uuid="9de0f081-8f85-4408-9d2d-5f9b39bd2d1b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{country}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

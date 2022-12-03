@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{merchant_web/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Lava Material - Web Application and Website Multipurpose Admin Panel Template</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+</head>
+
+<body>
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Add Hotel</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sb2-2-add-blog sb2-2-1">
+                    <h2>Add Expense</h2>
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active">
+                            <div class="box-inn-sp">
+                                <div class="bor">
+                                    <span th:if="${success}">the Employee Successfully added.</span>
+                                    <form  th:action="@{/merchant/save/expense}" method="post" >
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input id="description" type="text" name="description" class="validate" required="required" />
+                                                <label for="description">Description</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s4">
+                                                <input type="text" id="from" name="date" readonly />
+                                                <label for="from">Expense Date</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="number" id="amount" name="amount" class="validate" required="required"/>
+                                                <label for="amount">Taka</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <input type="submit" class="waves-effect waves-light btn-large" value="Submit" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

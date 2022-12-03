@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{web/fragments/main_layout}">
+
+<head>
+    <title>The Travel - Search Cars</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8" />
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+
+<body>
+    <div layout:fragment="content">
+
+        <!--HEADER SECTION-->
+        <section id="header-search-area" class="flights">
+            <div class="header-search-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="nav nav-tabs header-nav-tab">
+                                <li>
+                                    <a data-toggle="tab" href="#flights"><i class="fa fa-plane"></i> Flights</a>
+                                </li>
+                                <li><a data-toggle="tab" href="#hotels"><i class="fa fa-hotel"></i> Hotels</a></li>
+                                <li><a data-toggle="tab" href="#buses"><i class="fa fa-bus"></i> Buses</a></li>
+                                <li class="active"><a data-toggle="tab" href="#cars"><i class="fa fa-car"></i> Cars</a></li>
+                                <li><a data-toggle="tab" href="#packages"><i class="fa fa-gift"></i> Packages</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-search-tab-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Header Search Fragment -->
+                                <div th:insert="web/fragments/search_area :: header_search"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--====== TOP TOUR PACKAGES ==========-->
+        <section>
+            <div class="rows pad-bot-redu tb-space">
+                <div class="container">
+                    <!-- TITLE & DESCRIPTION -->
+                    <div class="spe-title">
+                        <h2>
+                            Top <span>Car Rentals</span>
+                        </h2>
+                        <div class="title-line">
+                            <div class="tl-1"></div>
+                            <div class="tl-2"></div>
+                            <div class="tl-3"></div>
+                        </div>
+                        <p>World's leading tour and travels Booking website,Over
+                            30,000 packages worldwide.</p>
+                    </div>
+                    <div>
+                        <!-- TOUR PLACE 1 -->
+                        <div class="col-md-4 col-sm-6 col-xs-12 b_packages wow slideInUp"
+                            data-wow-duration="0.5s">
+                            <!-- OFFER BRAND -->
+                            <div class="band">
+                                <img th:src="@{web_asset/images/band.png}" alt="" />
+                            </div>
+                            <!-- IMAGE -->
+                            <div class="v_place_img">
+                                <img th:src="@{web_asset/images/t5.png}" alt="Tour Booking"
+                                    title="Tour Booking" />
+                            </div>
+                            <!-- TOUR TITLE & ICONS -->
+                            <div class="b_pack rows">
+                                <!-- TOUR TITLE -->
+                                <div class="col-md-8 col-sm-8">
+                                    <h4>
+                                        <a href="tour-details.html">Rio de Janeiro<span
+                                            class="v_pl_name">(Brazil)</span></a>
+                                    </h4>
+                                </div>
+                                <!-- TOUR ICONS -->
+                                <div class="col-md-4 col-sm-4 pack_icon">
+                                    <ul>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/clock.png}" alt="Date"
+                                                title="Tour Timing" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/info.png}" alt="Details"
+                                                title="View more details" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/price.png}" alt="Price"
+                                                title="Price" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/map.png}" alt="Location"
+                                                title="Location" /> </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TOUR PLACE 2 -->
+                        <div class="col-md-4 col-sm-6 col-xs-12 b_packages wow fadeInUp"
+                            data-wow-duration="0.7s">
+                            <!-- OFFER BRAND -->
+                            <div class="band">
+                                <img th:src="@{web_asset/images/band1.png}" alt="" />
+                            </div>
+                            <!-- IMAGE -->
+                            <div class="v_place_img">
+                                <img th:src="@{web_asset/images/t1.png}" alt="Tour Booking"
+                                    title="Tour Booking" />
+                            </div>
+                            <!-- TOUR TITLE & ICONS -->
+                            <div class="b_pack rows">
+                                <!-- TOUR TITLE -->
+                                <div class="col-md-8 col-sm-8">
+                                    <h4>
+                                        <a href="tour-details.html">Paris<span class="v_pl_name">(England)</span></a>
+                                    </h4>
+                                </div>
+                                <!-- TOUR ICONS -->
+                                <div class="col-md-4 col-sm-4 pack_icon">
+                                    <ul>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/clock.png}" alt="Date"
+                                                title="Tour Timing" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/info.png}" alt="Details"
+                                                title="View more details" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/price.png}" alt="Price"
+                                                title="Price" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/map.png}" alt="Location"
+                                                title="Location" /> </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TOUR PLACE 3 -->
+                        <div class="col-md-4 col-sm-6 col-xs-12 b_packages wow fadeInUp"
+                            data-wow-duration="0.9s">
+                            <div class="v_place_img">
+                                <img th:src="@{web_asset/images/t2.png}" alt="Tour Booking"
+                                    title="Tour Booking" />
+                            </div>
+                            <div class="b_pack rows">
+                                <div class="col-md-8 col-sm-8">
+                                    <h4>
+                                        <a href="tour-details.html">South India<span
+                                            class="v_pl_name">(India)</span></a>
+                                    </h4>
+                                </div>
+                                <div class="col-md-4 col-sm-4 pack_icon">
+                                    <ul>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/clock.png}" alt="Date"
+                                                title="Tour Timing" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/info.png}" alt="Details"
+                                                title="View more details" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/price.png}" alt="Price"
+                                                title="Price" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/map.png}" alt="Location"
+                                                title="Location" /> </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TOUR PLACE 4 -->
+                        <div class="col-md-4 col-sm-6 col-xs-12 b_packages wow fadeInUp"
+                            data-wow-duration="1.1s">
+                            <div class="v_place_img">
+                                <img th:src="@{web_asset/images/t3.png}" alt="Tour Booking"
+                                    title="Tour Booking" />
+                            </div>
+                            <div class="b_pack rows">
+                                <div class="col-md-8 col-sm-8">
+                                    <h4>
+                                        <a href="tour-details.html">The Great Wall<span
+                                            class="v_pl_name">(China)</span></a>
+                                    </h4>
+                                </div>
+                                <div class="col-md-4 col-sm-4 pack_icon">
+                                    <ul>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/clock.png}" alt="Date"
+                                                title="Tour Timing" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/info.png}" alt="Details"
+                                                title="View more details" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/price.png}" alt="Price"
+                                                title="Price" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/map.png}" alt="Location"
+                                                title="Location" /> </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TOUR PLACE 5 -->
+                        <div class="col-md-4 col-sm-6 col-xs-12 b_packages wow fadeInUp"
+                            data-wow-duration="1.3s">
+                            <div class="v_place_img">
+                                <img th:src="@{web_asset/images/t4.png}" alt="Tour Booking"
+                                    title="Tour Booking" />
+                            </div>
+                            <div class="b_pack rows">
+                                <div class="col-md-8 col-sm-8">
+                                    <h4>
+                                        <a href="tour-details.html">Nail Island<span
+                                            class="v_pl_name">(Andaman)</span></a>
+                                    </h4>
+                                </div>
+                                <div class="col-md-4 col-sm-4 pack_icon">
+                                    <ul>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/clock.png}" alt="Date"
+                                                title="Tour Timing" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/info.png}" alt="Details"
+                                                title="View more details" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/price.png}" alt="Price"
+                                                title="Price" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/map.png}" alt="Location"
+                                                title="Location" /> </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TOUR PLACE 6 -->
+                        <div class="col-md-4 col-sm-6 col-xs-12 b_packages wow fadeInUp"
+                            data-wow-duration="1.5s">
+                            <div class="v_place_img">
+                                <img th:src="@{web_asset/images/t6.png}" alt="Tour Booking"
+                                    title="Tour Booking" />
+                            </div>
+                            <div class="b_pack rows">
+                                <div class="col-md-8 col-sm-8">
+                                    <h4>
+                                        <a href="tour-details.html">Mauritius<span
+                                            class="v_pl_name">(Indiana)</span></a>
+                                    </h4>
+                                </div>
+                                <div class="col-md-4 col-sm-4 pack_icon">
+                                    <ul>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/clock.png}" alt="Date"
+                                                title="Tour Timing" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/info.png}" alt="Details"
+                                                title="View more details" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/price.png}" alt="Price"
+                                                title="Price" /> </a></li>
+                                        <li><a href="#"><img
+                                                th:src="@{web_asset/images/map.png}" alt="Location"
+                                                title="Location" /> </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--====== POPULAR CITIES ==========-->
+        <section>
+            <div class="rows tb-space pad-top-o pad-bot-redu">
+                <div class="container">
+                    <!-- TITLE & DESCRIPTION -->
+                    <div class="spe-title">
+                        <h2>
+                            Coverage <span>Areas</span>
+                        </h2>
+                        <div class="title-line">
+                            <div class="tl-1"></div>
+                            <div class="tl-2"></div>
+                            <div class="tl-3"></div>
+                        </div>
+                        <p>World's leading Hotel Booking website, Over 30,000 Hotel
+                            rooms worldwide. Book Hotel rooms and enjoy your holidays with
+                            distinctive experience</p>
+                    </div>
+                    <!-- CITY -->
+                    <div class="col-md-6">
+                        <a href="tour-details.html">
+                            <div class="tour-mig-like-com">
+                                <div class="tour-mig-lc-img">
+                                    <img th:src="@{web_asset/images/listing/home.jpg}" alt="">
+                                </div>
+                                <div class="tour-mig-lc-con">
+                                    <h5>Europe</h5>
+                                    <p>
+                                        <span>12 Packages</span> Starting from $2400
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="tour-details.html">
+                            <div class="tour-mig-like-com">
+                                <div class="tour-mig-lc-img">
+                                    <img th:src="@{web_asset/images/listing/home3.jpg}" alt="">
+                                </div>
+                                <div class="tour-mig-lc-con tour-mig-lc-con2">
+                                    <h5>Dubai</h5>
+                                    <p>Starting from $2400</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="tour-details.html">
+                            <div class="tour-mig-like-com">
+                                <div class="tour-mig-lc-img">
+                                    <img th:src="@{web_asset/images/listing/home2.jpg}" alt="">
+                                </div>
+                                <div class="tour-mig-lc-con tour-mig-lc-con2">
+                                    <h5>India</h5>
+                                    <p>Starting from $2400</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="tour-details.html">
+                            <div class="tour-mig-like-com">
+                                <div class="tour-mig-lc-img">
+                                    <img th:src="@{web_asset/images/listing/home1.jpg}" alt="">
+                                </div>
+                                <div class="tour-mig-lc-con tour-mig-lc-con2">
+                                    <h5>Usa</h5>
+                                    <p>Starting from $2400</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="tour-details.html">
+                            <div class="tour-mig-like-com">
+                                <div class="tour-mig-lc-img">
+                                    <img th:src="@{web_asset/images/listing/home4.jpg}" alt="">
+                                </div>
+                                <div class="tour-mig-lc-con tour-mig-lc-con2">
+                                    <h5>London</h5>
+                                    <p>Starting from $2400</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <!--====== PROMOTION ==========-->
+        <section>
+            <div class="offer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="offer-l">
+                                <span class="ol-1"></span> <span class="ol-2"><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                    class="fa fa-star"></i></span> <span class="ol-4">Standardized
+                                    Budget Rooms</span> <span class="ol-3"></span> <span class="ol-5">$99/-</span>
+                                <ul>
+                                    <li class="wow fadeInUp" data-wow-duration="0.5s"><a
+                                        href="#!" class="waves-effect waves-light btn-large offer-btn"><img
+                                            th:src="@{web_asset/images/icon/dis1.png}" alt=""> </a><span>Free
+                                            WiFi</span></li>
+                                    <li class="wow fadeInUp" data-wow-duration="0.7s"><a
+                                        href="#!" class="waves-effect waves-light btn-large offer-btn"><img
+                                            th:src="@{web_asset/images/icon/dis2.png}" alt=""> </a><span>Breakfast</span>
+                                    </li>
+                                    <li class="wow fadeInUp" data-wow-duration="0.9s"><a
+                                        href="#!" class="waves-effect waves-light btn-large offer-btn"><img
+                                            th:src="@{web_asset/images/icon/dis3.png}" alt=""> </a><span>Pool</span>
+                                    </li>
+                                    <li class="wow fadeInUp" data-wow-duration="1.1s"><a
+                                        href="#!" class="waves-effect waves-light btn-large offer-btn"><img
+                                            th:src="@{web_asset/images/icon/dis4.png}" alt=""> </a><span>Television</span>
+                                    </li>
+                                    <li class="wow fadeInUp" data-wow-duration="1.3s"><a
+                                        href="#!" class="waves-effect waves-light btn-large offer-btn"><img
+                                            th:src="@{web_asset/images/icon/dis5.png}" alt=""> </a><span>GYM</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="offer-r">
+                                <div class="or-1">
+                                    <span class="or-11">go</span> <span class="or-12">Stays</span>
+                                </div>
+                                <div class="or-2">
+                                    <span class="or-21">Get</span> <span class="or-22">70%</span> <span
+                                        class="or-23">Off</span> <span class="or-24">use code:
+                                        RG5481WERQ</span> <span class="or-25"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--====== MOBILE APP FEATURES ==========-->
+        <section>
+            <div class="foot-mob-sec tb-space">
+                <div class="rows container">
+                    <!-- FAMILY IMAGE(YOU CAN USE ANY PNG IMAGE) -->
+                    <div class="col-md-6 col-sm-6 col-xs-12 family">
+                        <img th:src="@{web_asset/images/mobile.png}" alt="" />
+                    </div>
+                    <!-- REQUEST A QUOTE -->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <!-- THANK YOU MESSAGE -->
+                        <div class="foot-mob-app">
+                            <h2>Have you tried our mobile app?</h2>
+                            <p>World's leading tour and travels Booking website,Over
+                                30,000 packages worldwide. Book travel packages and enjoy your
+                                holidays with distinctive experience</p>
+                            <ul>
+                                <li><i class="fa fa-check" aria-hidden="true"></i> Easy
+                                    Hotel Booking</li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i> Tour and
+                                    Travel Packages</li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i> Package
+                                    Reviews and Ratings</li>
+                                <li><i class="fa fa-check" aria-hidden="true"></i> Manage
+                                    your Bookings, Enquiry and Reviews</li>
+                            </ul>
+                            <a href="#"><img th:src="@{web_asset/images/android.png}"
+                                alt=""> </a> <a href="#"><img
+                                th:src="@{web_asset/images/apple.png}" alt=""> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

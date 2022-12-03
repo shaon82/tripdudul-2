@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{merchant_web/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Tripdodul - Dashboard</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+
+
+            <!--== BODY INNER CONTAINER ==-->
+            <div class="sb2-2">
+                <!--== breadcrumbs ==-->
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Dashboard</a>
+                        </li>
+                        <li class="page-back"><a href="index.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--== DASHBOARD INFO ==-->
+                <h2><span>Percentage for online Booking: </span>
+                    <span th:if="${hotel.hotelPercentage}!=null"  th:text="${hotel.hotelPercentage.percentage}"></span>
+                <span th:unless="${hotel.hotelPercentage}!=null">0%</span>
+                </h2>
+                <div class="ad-v2-hom-info">
+                    <div class="ad-v2-hom-info-inn">
+                        <h3>Income Summary</h3>
+                        <ul>
+                            <li>
+                                <a th:href="@{/merchant/report/today/income}" class="ad-hom-box ad-hom-box-1" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-2"><i class="fa fa-usd"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> Today's Income</p>
+                                        <h3 th:text="${totalIncome}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/merchant/report/week/income}" class="ad-hom-box ad-hom-box-2" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-1"><i class="fa fa-line-chart"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> This Week's Income</p>
+                                        <h3 th:text="${weeklyTotalIncome}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/merchant/monthly/income/report}" class="ad-hom-box ad-hom-box-3" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-3"><i class="fa fa-bar-chart"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> This Month's Income</p>
+                                        <h3 th:text="${monthlyIncome}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/merchant/yearly/income/report}" class="ad-hom-box ad-hom-box-4" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-4"><i class="fa fa-area-chart"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> Overall Income</p>
+                                        <h3 th:text="${totalYearlyIncome}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ad-v2-hom-info">
+                    <div class="ad-v2-hom-info-inn">
+                        <h3>Expense Summary</h3>
+                        <ul>
+                            <li>
+                                <a th:href="@{/merchant/daily/expense/report}" class="ad-hom-box ad-hom-box-1" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-4"><i class="fa fa-usd"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> Today's Expense</p>
+                                        <h3 th:text="${todaysTotalExpense}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/merchant/weekly/expense/report}" class="ad-hom-box ad-hom-box-2" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-2"><i class="fa fa-line-chart"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> This Week's Expense</p>
+                                        <h3 th:text="${weeklyTotalExpense}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/merchant/monthly/expense/report}" class="ad-hom-box ad-hom-box-3" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-1"><i class="fa fa-bar-chart"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> This Month's Expense</p>
+                                        <h3 th:text="${monthlyTotalExpense}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/merchant/yearly/expense/report}" class="ad-hom-box ad-hom-box-4" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-3"><i class="fa fa-area-chart"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> Overall Expense</p>
+                                        <h3 th:text="${yearlyTotalExpense}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ad-v2-hom-info">
+                    <div class="ad-v2-hom-info-inn">
+                        <h3>Booking Summary</h3>
+                        <ul>
+                            <li>
+                                <a th:href="@{/merchant/daily/booking/report}" class="ad-hom-box ad-hom-box-1" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-1"><i class="fa fa-calendar-check-o"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> Today's Booking</p>
+                                        <h3 th:text="${todaysBookingList}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/merchant/weekly/booking/report}" class="ad-hom-box ad-hom-box-2" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-2"><i class="fa fa-calendar-o"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> This Week's Booking</p>
+                                        <h3 th:text="${weeklyBookingList}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/merchant/monthly/booking/report}" class="ad-hom-box ad-hom-box-3" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-3"><i class="fa fa-calendar-plus-o"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> This Month's Booking</p>
+                                        <h3 th:text="${monthLyBookingList}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/merchant/yearly/booking/report}" class="ad-hom-box ad-hom-box-4" title="Click to export summary report">
+                                    <span class="ad-hom-col-com ad-hom-col-4"><i class="fa fa-calendar"></i></span>
+                                    <div class="ad-hom-view-com">
+                                        <p><i class="fa  fa-arrow-up up"></i> Overall Booking</p>
+                                        <h3 th:text="${yearlyBookingList}"></h3>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!--== Today's Booking ==-->
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-inn-sp">
+                                <div class="inn-title">
+                                    <h4>All Booking</h4>
+                                </div>
+                                <div class="tab-inn">
+                                    <div class="table-responsive table-desi">
+                                        <table class="table table-hover custom-datatable">
+                                            <thead>
+                                                <tr>
+                                                    <th>User</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Phone</th>
+                                                    <th>Arrival Time</th>
+                                                    <th>Departure Time</th>
+                                                    <th>Room Number</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="booking:${bookings}">
+                                                    <td><span class="list-img"><img src="admin_asset/images/listing/1.jpeg" alt=""></span>
+                                                    </td>
+                                                    <td><span th:text="${booking.firstName}"></span> <span th:text="${booking.lastName}"></span></td>
+                                                    <td th:text="${booking.email}"></td>
+                                                    <td><span th:text="${booking.numberInit}"></span><span th:text="${booking.number}"></span></td>
+                                                    <td th:text="${booking.checkIn}"></td>
+                                                    <td th:text="${booking.checkOut}"></td>
+                                                    <td th:text="${booking.room.roomNumber}"></td>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+
+        </div>
+    </div>
+
+<!--== BOTTOM FLOAT ICON ==-->
+
+</body>
+
+</html>

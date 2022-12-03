@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Tripdoddule - Package Details</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Package</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Package Details</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sb2-2-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-inn-sp">
+                                <div class="inn-title">
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="package-images-carousel owl-carousel">
+                                                <div class="single-package-image">
+                                                    <img th:src="@{admin_asset/images/hotel-bg-1.jpg}" alt="">
+                                                    <div class="package-image-delete">
+                                                        <i class="fa fa-trash"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="single-package-image">
+                                                    <img th:src="@{admin_asset/images/hotel-bg-1.jpg}" alt="">
+                                                    <div class="package-image-delete">
+                                                        <i class="fa fa-trash"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="single-package-image">
+                                                    <img th:src="@{admin_asset/images/hotel-bg-1.jpg}" alt="">
+                                                    <div class="package-image-delete">
+                                                        <i class="fa fa-trash"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="package-images-add">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-package-images">
+                                                    Add Images
+                                                </button>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-package-details">
+                                                    Edit Package Details
+                                                </button>
+
+                                                <!-- Package Image Modal Start -->
+                                                <div class="modal fade" id="add-package-images" tabindex="-1" role="dialog" aria-labelledby="add-package-images" aria-hidden="true">
+                                                  <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <h5 class="modal-title">Add Package Images</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                          <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                          <form  method="post"  enctype="multipart/form-data">
+                                                              <div class="row">
+                                                                  <div class="input-field col s12 mt-0">
+                                                                      <div class="file-field input-field mt-0">
+                                                                          <label for="packageImages" class="position-relative">Upload Image</label>
+
+                                                                          <div class="file-path-wrapper">
+                                                                          <span class="flie-input-message">
+                                                                              <i class="fa fa-cloud-upload"></i>
+                                                                              <span class="large">Click here to upload.</span>
+                                                                              <span>The maximum file size for uploads is <strong>999 KB</strong></span>
+                                                                              <span>Only image files (<strong>JPG, GIF, PNG</strong>) are allowed</span>
+                                                                          </span>
+                                                                              <input type="file" id="packageImages" name="files" multiple="multiple" required/>
+                                                                          </div>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+
+
+                                                              <div class="row">
+                                                                  <div class="input-field col s12">
+                                                                      <input type="submit" class="waves-effect waves-light btn-large" value="Submit">
+                                                                  </div>
+                                                              </div>
+                                                          </form>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <!-- Package Image Modal End  -->
+
+                                                <!-- Package Image Modal Start -->
+                                                <div class="modal fade" id="edit-package-details" tabindex="-1" role="dialog" aria-labelledby="edit-package-details" aria-hidden="true">
+                                                  <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <h5 class="modal-title">Edit Package Details</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                          <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                          <form method="post"  enctype="multipart/form-data">
+                                                              <div class="row">
+                                                                  <div class="input-field col s12">
+                                                                      <input id="name" type="text" class="validate" name="packageName"  required="required">
+                                                                      <label for="name">Package Name</label>
+                                                                      <p class="input-warning"></p>
+                                                                  </div>
+
+                                                              </div>
+                                                              <div class="row">
+                                                                  <div class="input-field col s12">
+                                                                      <input type="text" id="packagePrice" class="materialize-textarea" name="packagePrice"  required="required">
+                                                                      <label for="packagePrice">Price</label>
+                                                                  </div>
+                                                                  <div class="input-field col s12">
+                                                                      <input type="text" id="packageDuration" class="materialize-textarea" name="packageDuration" >
+                                                                      <label for="packageDuration">Package Duration:</label>
+                                                                      <p class="input-warning" ></p>
+                                                                  </div>
+                                                                  <div class="input-field col s12">
+                                                                      <input type="text" id="Value_from" class="materialize-textarea" name="from">
+                                                                      <label for="Value_from">From</label>
+                                                                  </div>
+                                                                  <div class="input-field col s12">
+                                                                      <input type="text" id="destination" class="materialize-textarea" name="destination">
+                                                                      <label for="packageDuration">Destination</label>
+                                                                  </div>
+                                                                  <div class="input-field col s12">
+                                                                      <textarea id="description" class="materialize-textarea" name="description" ></textarea>
+                                                                      <label for="description">Package Descriptions:</label>
+                                                                      <p class="input-warning" ></p>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="row">
+                                                                  <div class="input-field col s12">
+                                                                      <label for="packageCategory" class="position-relative">Select Category</label>
+                                                                      <select id="packageCategory" name="packageCategory" required="required">
+                                                                          <option value="">Choose Category</option>
+                                                                          <option ></option>
+                                                                      </select>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="row">
+                                                                  <div class="input-field col s12">
+                                                                      <textarea id="author" class="materialize-textarea" name="amenities" required="required"></textarea>
+                                                                      <label for="author">Package amenities</label>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="row">
+                                                                  <div class="input-field col s12">
+                                                                      <input type="submit" class="waves-effect waves-light btn-large" value="Submit">
+                                                                  </div>
+                                                              </div>
+                                                          </form>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <!-- Package Image Modal End  -->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="package-detailed-information">
+                                                <h3 class="package-name">Honeymoon Package</h3>
+                                                <div class="package-price">BDT 10000/-</div>
+                                                <div class="package-info">
+                                                    <strong>Category:</strong>
+                                                    <span>Honeymoon</span>
+                                                </div>
+                                                <div class="package-info">
+                                                    <strong>Location:</strong>
+                                                    <span>Dhaka - Chittagong</span>
+                                                </div>
+                                                <div class="package-info">
+                                                    <strong>Duraion:</strong>
+                                                    <span>5 Days</span>
+                                                </div>
+                                                <div class="package-info">
+                                                    <strong>Amenities:</strong>
+                                                    <ul>
+                                                        <li>Free Wifi</li>
+                                                        <li>Air Conditioned Room</li>
+                                                        <li>Free Breakfast</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="package-info package-description">
+                                                <strong>Description:</strong>
+                                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-inn">
+                                    <h3>Meal Informaion</h3>
+                                    <div class="table-responsive table-description">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>Meal Name</th>
+                                                    <th>Meal Serve Time</th>
+                                                    <th>Meal Price</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>#1</td>
+                                                    <td class="meal-name">Nagga Burger 1</td>
+                                                    <td class="meal-category">Breakfast</td>
+                                                    <td class="meal-price">BDT 190.00</td>
+                                                    <td>
+                                                        <a data-toggle="modal" href="#edit-meal-details" class="meal-edit-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    </td>
+                                                    <td><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#2</td>
+                                                    <td class="meal-name">Nagga Burger 2</td>
+                                                    <td class="meal-category">Lunch</td>
+                                                    <td class="meal-price">BDT 290.00</td>
+                                                    <td>
+                                                        <a data-toggle="modal" href="#edit-meal-details" class="meal-edit-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    </td>
+                                                    <td><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>#3</td>
+                                                    <td class="meal-name">Nagga Burger 3</td>
+                                                    <td class="meal-category">Dinner</td>
+                                                    <td class="meal-price">BDT 390.00</td>
+                                                    <td>
+                                                        <a data-toggle="modal" href="#edit-meal-details" class="meal-edit-btn"><i class="fa fa-pencil-square-o"  aria-hidden="true"></i></a>
+                                                    </td>
+                                                    <td><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- Meal Details Edit Modal Start -->
+                                    <div class="modal fade" id="edit-meal-details" tabindex="-1" role="dialog" aria-labelledby="edit-meal-details" aria-hidden="true">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title">Edit Meal Details</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                              <form method="post"  enctype="multipart/form-data">
+                                                  <div class="row">
+                                                      <div class="input-field col s12">
+                                                          <input id="mealName" type="text" class="validate" name="mealName"  required="required">
+                                                          <label for="mealName">Meal Name</label>
+                                                          <p class="input-warning"></p>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="input-field col s12">
+                                                          <input type="text" id="mealPrice" class="materialize-textarea" name="mealPrice"  required="required">
+                                                          <label for="mealPrice">Meal Price</label>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="input-field col s12">
+                                                          <label for="mealCategory" class="position-relative">Select Serve Time</label>
+                                                          <select  id="mealCategory" name="mealCategory" required="required">
+                                                              <option value="">Choose Serve Time</option>
+                                                              <option value="Breakfast">Breakfast</option>
+                                                              <option value="Lunch">Lunch</option>
+                                                              <option value="Dinner">Dinner</option>
+                                                          </select>
+                                                      </div>
+                                                  </div>
+                                                  <div class="row">
+                                                      <div class="input-field col s12">
+                                                          <input type="submit" class="waves-effect waves-light btn-large" value="Submit">
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- Meal Details Edit Modal End  -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

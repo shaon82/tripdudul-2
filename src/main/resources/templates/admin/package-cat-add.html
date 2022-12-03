@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Lava Material - Web Application and Website Multipurpose Admin Panel Template</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Add New Package Categories</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sb2-2-add-blog sb2-2-1">
+                    <h2>Add New Package Categories</h2>
+                    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+                    <div th:if="${success}">the category is added.</div>
+                    <div th:if="${error}">Date binding error!</div>
+                    <div th:if="${categoryExist}">Package Category name already exist!</div>
+                    <form th:action="@{/admin/add-package-Category}" th:method="post" th:object="${packageCategory}">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="categoryName" type="text" value="" class="validate" name="categoryName" required="required"/>
+                                <label for="categoryName">Enter Package Category</label>
+                                <p class="input-warning" th:if="${#fields.hasErrors('categoryName')}" th:errors="*{categoryName}"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <!--<input type="submit" class="waves-effect waves-light btn-large" value="Submit">-->
+                                <button class="btn btn-primary" type="submit" value="submit">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

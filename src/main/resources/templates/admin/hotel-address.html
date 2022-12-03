@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Lava Material - Web Application and Website Multipurpose Admin Panel Template</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+</head>
+
+<body>
+
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="box-inn-sp">
+                    <div class="tab-content">
+                            <div class="inn-title">
+                                <h4>Contact Info</h4>
+                                <p>Airtport Hotels The Right Way To Start A Short Break Holiday</p>
+                            </div>
+                            <div class="bor">
+                                <form th:action="@{/admin/save-hotel-address}" method="post">
+
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <select multiple id="hotel" name="hotel">
+                                                <option value="" disabled selected>Choose Hotel</option>
+                                                <option th:each="hoteles:${hotelList}"
+                                                        th:value="${hoteles.id}"
+                                                        th:text="${hoteles.hotelName}"></option>
+                                            </select>
+                                            <label for="hotel">Select Hotel</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input id="streeAddress" type="text" name="streeAddress" class="validate"/>
+                                            <label for="streeAddress">Road Number</label>
+                                        </div>
+<!--                                        <div class="input-field col s6">-->
+<!--                                            <input id="t5-n2" type="text" class="validate">-->
+<!--                                            <label for="t5-n2">Alter Contact Name</label>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input id="block" name="block" type="text" class="validate">
+                                            <label for="block">Block</label>
+                                        </div>
+<!--                                        <div class="input-field col s6">-->
+<!--                                            <input id="t5-n4" type="number" class="validate">-->
+<!--                                            <label for="t5-n4">Mobile</label>-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="city" type="text" name="city" class="validate">
+                                            <label for="city">City</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="country" name="country" type="text" class="validate"/>
+                                            <label for="country">Country</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input type="submit" class="waves-effect waves-light btn-large" value="Upload">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

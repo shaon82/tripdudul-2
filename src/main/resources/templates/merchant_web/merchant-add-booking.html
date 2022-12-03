@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{merchant_web/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Lava Material - Web Application and Website Multipurpose Admin Panel Template</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+
+<body>
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                        <li class="active-bre"><a href="#">Add Booking</a></li>
+                    </ul>
+                </div>
+                <div class="sb2-2-1">
+                    <h2>Add Booking Info</h2>
+                    
+
+                    <form class="cart-hotel-details" method="post" th:action="@{/merchant/save/booking}" th:object="${booking}">
+
+                        <div class="form-area">
+                            <h5>General Info</h5>
+                            <div class="contact-form-v2 v2-search-form">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="input-field col s12">
+                                            <select name="add_booking_type" id="add-booking-type" required>
+                                                <option value="" disabled selected>Booking Type</option>
+                                                <option th:each="roomCategory:${roomCategories}"
+                                                        th:value="${roomCategory.id}"
+                                                        th:text="${roomCategory.roomCategoryName}"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-field col s12">
+                                            <label for="add-room-list" class="multiple-select-label">Room List</label>
+                                            <select name="room" id="add-room-list" required multiple="multiple">
+                                                //room list
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-field col s12">
+                                            <input type="text" id="from" name="checkIn" readonly>
+                                            <label for="from">Booking Start Date</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="input-field col s12">
+                                            <input type="text" id="to" name="checkOut" readonly>
+                                            <label for="to">Booking End Date</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-area">
+                            <h5>Contact Info</h5>
+                            <div class="contact-form-v2 v2-search-form">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="input-field col s12">
+                                            <select name="nameInit" id="c-title" required>
+                                                <option value="" disabled selected>Title</option>
+                                                <option value="1">Mr.</option>
+                                                <option value="2">Mrs.</option>
+                                                <option value="3">Ms.</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-field col s12">
+                                            <input type="text"  class="validate" name="firstName" id="c-firstname" required>
+                                            <label>First Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-field col s12">
+                                            <input type="text"  class="validate" name="lastName" id="c-lastname" required>
+                                            <label>Last Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="checkbox checkbox-info checkbox-circle col s12">
+                                            <input id="c-guest" class="styled" type="checkbox">
+                                            <label for="c-guest"> Guest </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="input-field col s12">
+                                            <input type="email"  class="validate" name="email" id="c-email" required>
+                                            <label>Email</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="input-field col s12">
+                                            <select name="numberInit" id="c-country-code" required>
+                                                <option value="" disabled selected>Country Code</option>
+                                                <option value="+880">Bangladesh(+880)</option>
+                                                <option value="+91">India(+91)</option>
+                                                <option value="+93">Afganistan(+93)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="input-field col s12">
+                                            <input type="text"  class="validate" name="number" id="c-phone" required>
+                                            <label>Phone/Mobile Number</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-area guest-area m-2">
+                            <h5>Guest Info</h5>
+                            <div class="contact-form-v2 v2-search-form">
+                                <div class="guest-inputs-wrapper" th:each="item, stat : *{guests}">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <div class="input-field col s12">
+                                                <div class="guest-number">
+                                                    Guest <span class="number">1</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="input-field col s12">
+                                                <select id="g-title-0" th:field="*{guests[__${stat.index}__].nameInit}">
+                                                    <option value="" disabled selected>Title</option>
+                                                    <option value="1">Mr.</option>
+                                                    <option value="2">Mrs.</option>
+                                                    <option value="3">Ms.</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="input-field col s12">
+                                                <input type="text"  class="validate" name="name" id="g-fullname-0" th:field="*{guests[__${stat.index}__].name}" required>
+                                                <label>Full Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="input-field col s12">
+                                                <input type="text"  class="validate" id="g-age-0" th:field="*{guests[__${stat.index}__].age}" required>
+                                                <label>Age</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="input-field col s12">
+                                                <div class="custom-radio">
+                                                    <input type="radio" id="m-gender-0" value="Male" th:field="*{guests[__${stat.index}__].gender}" checked>
+                                                    <label for="m-gender-0">Male</label>
+                                                </div>
+                                                <div class="custom-radio">
+                                                    <input type="radio" id="f-gender-0" th:field="*{guests[__${stat.index}__].gender}" Value="Female">
+                                                    <label for="f-gender-0">Female</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="input-field col s12">
+                                                <button type="button" class="remove-guest-btn"><i class="fa fa-times"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button type="button" class="waves-effect waves-light add-guest-btn">Add Guest</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button type="submit" class="waves-effect waves-light tourz-sear-btn v2-ser-btn confirm-btn-2">Submit</button>
+<!--                                        <input type="submit" value="submit hello" class="waves-effect waves-light tourz-sear-btn v2-ser-btn confirm-btn-2" />-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{merchant_web/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Lava Material - Web Application and Website Multipurpose Admin Panel Template</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Room Types</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sb2-2-1">
+                    <h2 class="mb-3">All Room And Booking Info</h2>
+                    <table class="responsive-table striped text-center custom-datatable">
+                        <thead>
+                            <tr>
+                                <th>Room Number</th>
+                                <th>Booking Period</th>
+                                <th>Total Taka</th>
+                                <th>Booking Status</th>
+                                <th>Approve/Check Out</th>
+                                <th>Reject</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="booking:${bookings}">
+                                <td th:text="${booking.room.roomNumber}"></td>
+                                <td>
+                                    <span th:text="${#dates.format(booking.checkIn, 'dd-MM-yyyy')}"></span> - <span th:text="${#dates.format(booking.checkOut, 'dd-MM-yyyy')}"></span>
+                                </td>
+                                <td th:text="${booking.totalAmount}"></td>
+                                <td>
+                                    <span th:if="${booking.status.name()}=='PENDING'">PENDING</span>
+                                    <span th:if="${booking.status.name()}=='CONFIRM'">CONFIRM</span>
+                                </td>
+                                <td>
+                                    <div th:if="${booking.status.name()}=='PENDING'">
+                                        <a th:href="@{/merchant/booking/approved/{id}(id=${booking.id})}">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </a>
+                                    </div>
+                                    <div th:if="${booking.status.name()}=='CONFIRM'">
+                                        <a th:href="@{/merchant/check-out/booking/{id}(id = ${booking.id})}">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div th:if="${booking.status.name()}=='PENDING'">
+                                        <a th:href="@{/merchant/reject/booking/{bookingId}(bookingId=${booking.id})}">
+                                            <span class="glyphicon glyphicon-ban-circle"></span>
+                                        </a>
+                                    </div>
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

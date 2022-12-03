@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{merchant_web/fragments/main_layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Lava Material - Web Application and Website Multipurpose Admin Panel Template</title>
+    <!--== META TAGS ==-->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+
+<body>
+
+    <!--== BODY CONTNAINER ==-->
+    <div class="container-fluid sb2" layout:fragment="content">
+        <div class="row">
+            <div class="sb2-2">
+                <div class="sb2-2-2">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                        </li>
+                        <li class="active-bre"><a href="#"> Room Types</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sb2-2-1">
+                    <h2 class="mb-3">All Room And Booking Info</h2>
+                    <table class="responsive-table striped text-center custom-datatable">
+                        <thead>
+                            <tr>
+                                <th>Room Number</th>
+                                <th>Room Type</th>
+                                <th>Room Price</th>
+                                <th>Booking Status</th>
+                                <th>Add book</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="room:${roomList}">
+                                    <td th:text="${room.roomNumber}"></td>
+                                    <td th:text="${room.roomType}"></td>
+                                    <td th:text="${room.roomPrice}"></td>
+                                    <td>
+                                        <span th:if="${room.active}==false">Booked</span>
+                                        <span th:unless="${room.active}==false">Non Booked</span>
+                                    </td>
+                                    <td><span th:if="${room.active}==true">Add Book</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
